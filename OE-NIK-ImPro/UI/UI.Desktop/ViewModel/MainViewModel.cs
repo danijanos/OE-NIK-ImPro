@@ -30,5 +30,10 @@ namespace OE.NIK.ImPro.UI.Desktop.ViewModel
             ////    // Code runs "for real"
             ////}
         }
+
+        /// <summary>
+        /// Gets the title of the main window
+        /// </summary>
+        public string WindowTitle { get; private set; }
     }
 }
