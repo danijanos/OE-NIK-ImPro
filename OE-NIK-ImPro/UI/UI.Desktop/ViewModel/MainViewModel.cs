@@ -23,11 +23,11 @@ namespace OE.NIK.ImPro.UI.Desktop.ViewModel
         {
             if (IsInDesignMode)
             {
-                // code runs in blend --> create design time data.
+                this.WindowTitle = "ImPro (design)";
             }
             else
             {
-                // code runs "for real"
+                this.WindowTitle = "ImPro";
             }
         }
 
