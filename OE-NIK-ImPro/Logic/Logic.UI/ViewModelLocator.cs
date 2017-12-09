@@ -16,7 +16,7 @@ using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Ioc;
 using Microsoft.Practices.ServiceLocation;
 
-namespace OE.NIK.ImPro.UI.Desktop.ViewModel
+namespace OE.NIK.ImPro.Logic.UI
 {
     /// <summary>
     /// This class contains static references to all the view models in the
@@ -43,14 +43,8 @@ namespace OE.NIK.ImPro.UI.Desktop.ViewModel
             SimpleIoc.Default.Register<MainViewModel>();
         }
 
-        public MainViewModel Main
-        {
-            get
-            {
-                return ServiceLocator.Current.GetInstance<MainViewModel>();
-            }
-        }
-        
+        public MainViewModel Main => ServiceLocator.Current.GetInstance<MainViewModel>();
+
         public static void Cleanup()
         {
             // TODO Clear the ViewModels

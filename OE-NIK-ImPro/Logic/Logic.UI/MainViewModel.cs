@@ -1,6 +1,6 @@
 using GalaSoft.MvvmLight;
 
-namespace OE.NIK.ImPro.UI.Desktop.ViewModel
+namespace OE.NIK.ImPro.Logic.UI
 {
     /// <summary>
     /// This class contains properties that the main View can data bind to.
