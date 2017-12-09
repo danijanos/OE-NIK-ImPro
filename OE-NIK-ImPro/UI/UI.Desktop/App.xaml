@@ -4,10 +4,11 @@
              StartupUri="MainWindow.xaml" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              d1p1:Ignorable="d" 
-             xmlns:d1p1="http://schemas.openxmlformats.org/markup-compatibility/2006">
+             xmlns:d1p1="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:uiLogic="clr-namespace:OE.NIK.ImPro.Logic.UI;assembly=ImPro.Logic.UI">
   <Application.Resources>
     <ResourceDictionary>
-      <vm:ViewModelLocator x:Key="Locator" 
+      <uiLogic:ViewModelLocator x:Key="Locator" 
                            d:IsDataSource="True" />
     </ResourceDictionary>
   </Application.Resources>
