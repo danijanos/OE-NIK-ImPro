@@ -21,19 +21,19 @@ namespace OE.NIK.ImPro.UI.Desktop.ViewModel
         /// </summary>
         public MainViewModel()
         {
-            ////if (IsInDesignMode)
-            ////{
-            ////    // Code runs in Blend --> create design time data.
-            ////}
-            ////else
-            ////{
-            ////    // Code runs "for real"
-            ////}
+            if (IsInDesignMode)
+            {
+                // code runs in blend --> create design time data.
+            }
+            else
+            {
+                // code runs "for real"
+            }
         }
 
         /// <summary>
         /// Gets the title of the main window
         /// </summary>
-        public string WindowTitle { get; private set; }
+        public string WindowTitle { get; private set; }        
     }
 }
