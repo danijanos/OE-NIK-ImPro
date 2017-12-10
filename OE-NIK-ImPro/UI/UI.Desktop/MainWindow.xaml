@@ -31,7 +31,7 @@
             <!-- First column of the header: Open picture section -->
             <Grid Grid.Column="0">
                 <StackPanel Orientation="Horizontal">
-                    <Button Content="Open picture" Padding="15"/>
+                    <Button Content="Open picture" Padding="10" Margin="5"/>
                 </StackPanel>
             </Grid>
 
@@ -59,7 +59,11 @@
 
             <!-- Right side : controls -->
             <Grid Grid.Column="1" Background="Aquamarine">
-                <TextBlock Text="{Binding ProgramName}" FontSize="20" Padding="0 0 20 0"/>
+                <StackPanel Margin="10">
+                    <Button Content="Histogram" Padding="20" Margin="0 5"/>
+                    <Button Content="Grayscale" Padding="20" Margin="0 5"/>
+                    <Button Content="Blur" Padding="20" Margin="0 5"/>
+                </StackPanel>
             </Grid>
             
         </Grid>
