@@ -11,7 +11,7 @@
     
     <!-- Main Grid -->
     <Grid>
-        
+
         <!-- The row division of the main grid -->
         <Grid.RowDefinitions>
             <RowDefinition Height="0.7*" />
@@ -41,6 +41,27 @@
                     <TextBlock Text="{Binding ProgramName}" FontSize="20" Padding="0 0 20 0"/>
                 </StackPanel>
             </Grid>
+        </Grid>
+
+        <!-- Middle row of main: content and controls -->
+        <Grid Grid.Row="1">
+
+            <!-- The division of main's middle row: 1/9, 8/9 -->
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+
+            <!-- Left side : content-->
+            <Grid Grid.Column="0" Background="Aqua">
+                <TextBlock Text="{Binding ProgramName}" FontSize="20" Padding="0 0 20 0"/>
+            </Grid>
+
+            <!-- Right side : controls -->
+            <Grid Grid.Column="1" Background="Aquamarine">
+                <TextBlock Text="{Binding ProgramName}" FontSize="20" Padding="0 0 20 0"/>
+            </Grid>
+            
         </Grid>
 
     </Grid>
