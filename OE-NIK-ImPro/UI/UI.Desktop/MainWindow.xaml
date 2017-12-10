@@ -20,7 +20,7 @@
         </Grid.RowDefinitions>
 
         <!-- First row of main: the header -->
-        <Grid Grid.Row="0" Background="#FFEAEAEA">
+        <Grid Grid.Row="0" Background="#FFFFEFEF">
 
             <!-- Divison of the header: 1/2 -->
             <Grid.ColumnDefinitions>
@@ -53,12 +53,12 @@
             </Grid.ColumnDefinitions>
 
             <!-- Left side : content-->
-            <Grid Grid.Column="0" Background="Aqua">
+            <Grid Grid.Column="0" Background="#FFBCC7C7">
                 <TextBlock Text="{Binding ProgramName}" FontSize="20" Padding="0 0 20 0"/>
             </Grid>
 
             <!-- Right side : controls -->
-            <Grid Grid.Column="1" Background="Aquamarine">
+            <Grid Grid.Column="1" Background="#FFDBE2E0">
                 <StackPanel Margin="10">
                     <Button Content="Histogram" Padding="20" Margin="0 5"/>
                     <Button Content="Grayscale" Padding="20" Margin="0 5"/>
@@ -66,6 +66,13 @@
                 </StackPanel>
             </Grid>
             
+        </Grid>
+
+        <!-- Last row of main: the footer -->
+        <Grid Grid.Row="2" Background="#FFB4AFB9">
+            <Viewbox>
+                <TextBlock Text="OE-NIK: ImPro" Foreground="White"/>
+            </Viewbox>
         </Grid>
 
     </Grid>
