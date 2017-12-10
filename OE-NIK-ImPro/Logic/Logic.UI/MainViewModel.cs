@@ -1,4 +1,6 @@
+using System.Threading.Tasks;
 using GalaSoft.MvvmLight;
+using GalaSoft.MvvmLight.Threading;
 
 namespace OE.NIK.ImPro.Logic.UI
 {
@@ -23,17 +25,17 @@ namespace OE.NIK.ImPro.Logic.UI
         {
             if (IsInDesignMode)
             {
-                this.WindowTitle = "ImPro (design)";
+                WindowTitle = "ImPro (design)";                
             }
             else
             {
-                this.WindowTitle = "ImPro";
+                WindowTitle = "ImPro";                
             }
         }
 
         /// <summary>
         /// Gets the title of the main window
         /// </summary>
-        public string WindowTitle { get; private set; }        
+        public string WindowTitle { get; private set; }
     }
 }
