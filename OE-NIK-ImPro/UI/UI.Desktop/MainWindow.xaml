@@ -31,14 +31,14 @@
             <!-- First column of the header: Open picture section -->
             <Grid Grid.Column="0">
                 <StackPanel Orientation="Horizontal">
-                    <Button Content="Open picture" Padding="5 5 5 5"/>
+                    <Button Content="Open picture" Padding="15"/>
                 </StackPanel>
             </Grid>
 
             <!-- Second column of the header: program info -->
             <Grid Grid.Column="1">
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center">
-                    <TextBlock Text="{Binding WindowTitle}" FontSize="20" />
+                    <TextBlock Text="{Binding ProgramName}" FontSize="20" Padding="0 0 20 0"/>
                 </StackPanel>
             </Grid>
         </Grid>
