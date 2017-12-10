@@ -8,7 +8,41 @@
         Height="900" Width="1200" 
         WindowStartupLocation="CenterScreen"
         DataContext="{Binding Main, Source={StaticResource Locator}}">
+    
+    <!-- Main Grid -->
     <Grid>
         
+        <!-- The row division of the main grid -->
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.7*" />
+            <RowDefinition Height="10*" />
+            <RowDefinition Height="0.5*" />
+        </Grid.RowDefinitions>
+
+        <!-- First row of main: the header -->
+        <Grid Grid.Row="0" Background="#FFEAEAEA">
+
+            <!-- Divison of the header: 1/2 -->
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <!-- First column of the header: Open picture section -->
+            <Grid Grid.Column="0">
+                <StackPanel Orientation="Horizontal">
+                    <Button Content="Open picture" Padding="5 5 5 5"/>
+                </StackPanel>
+            </Grid>
+
+            <!-- Second column of the header: program info -->
+            <Grid Grid.Column="1">
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center">
+                    <TextBlock Text="{Binding WindowTitle}" FontSize="20" />
+                </StackPanel>
+            </Grid>
+        </Grid>
+
     </Grid>
+    
 </Window>

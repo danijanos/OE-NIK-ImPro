@@ -9,7 +9,7 @@
     <Style x:Key="ImProMainControlButton" TargetType="{x:Type Button}">
         <Setter Property="Background" Value="Transparent"/>
         <Setter Property="BorderBrush" Value="Transparent"/>
-        <Setter Property="Foreground" Value="#FF6A2A2A"/>
+        <Setter Property="Foreground" Value="{StaticResource ForegroundMain}"/>
         <Setter Property="BorderThickness" Value="0"/>
         <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
         <Setter Property="VerticalContentAlignment" Value="Center"/>
