@@ -54,7 +54,15 @@ namespace OE.NIK.ImPro.Logic.UI
         /// </summary>
         public string ProgramName => "ImPro - Image Processer";
 
+        /// <summary>
+        /// Command for open picture button
+        /// </summary>
         public RelayCommand OpenPictureCommand { get; private set; }
+
+        /// <summary>
+        /// Command for create histogram button
+        /// </summary>
+        public RelayCommand HistogramCommand { get; private set; }
 
     }
 }
