@@ -41,9 +41,12 @@ namespace OE.NIK.ImPro.Logic.UI
         /// <summary>
         /// Gets the title of the main window
         /// </summary>
-        public string WindowTitle { get; private set; } = "ImPro";
+        public string WindowTitle => "ImPro";
 
-        public string ProgramName { get; private set; } = "ImPro - Image Processer";
+        /// <summary>
+        /// Gets the name of the program
+        /// </summary>
+        public string ProgramName => "ImPro - Image Processer";
 
         public RelayCommand OpenPictureCommand { get; private set; }
 
