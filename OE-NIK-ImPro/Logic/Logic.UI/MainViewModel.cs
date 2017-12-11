@@ -35,8 +35,14 @@ namespace OE.NIK.ImPro.Logic.UI
             OpenPictureCommand = new RelayCommand(
                 () => {
                     Trace.TraceInformation("OK!");
-                });
+                }                             
+                );
         }
+
+        /// <summary>
+        /// Indicates that the opened file is a picture or not
+        /// </summary>
+        public bool IsAPicture { get; set; } = false;
 
         /// <summary>
         /// Gets the title of the main window
