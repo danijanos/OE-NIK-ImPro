@@ -33,9 +33,17 @@ namespace OE.NIK.ImPro.Logic.UI
             //}
 
             OpenPictureCommand = new RelayCommand(
-                () => {
-                    Trace.TraceInformation("OK!");
+                () => 
+                {
+                    Trace.TraceInformation("Open picture button pressed!");
                 }                             
+                );
+
+            HistogramCommand = new RelayCommand(
+                () =>
+                {
+                    Trace.TraceInformation("Create histogram button pressed!");
+                }
                 );
         }
 
