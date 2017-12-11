@@ -68,12 +68,12 @@ namespace OE.NIK.ImPro.Logic.UI
         /// <summary>
         /// Command for open picture button
         /// </summary>
-        public RelayCommand OpenPictureCommand { get; private set; }
+        public RelayCommand OpenPictureCommand { get; }
 
         /// <summary>
         /// Command for create histogram button
         /// </summary>
-        public RelayCommand HistogramCommand { get; private set; }
+        public RelayCommand HistogramCommand { get; }
 
     }
 }
