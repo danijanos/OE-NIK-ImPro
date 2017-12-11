@@ -31,7 +31,7 @@
             <!-- First column of the header: Open picture section -->
             <Grid Grid.Column="0">
                 <StackPanel Orientation="Horizontal">
-                    <Button Content="Open picture" Padding="10" Margin="5"/>
+                    <Button Content="Open picture" Padding="10" Margin="5" Command="{Binding OpenPictureCommand}"/>
                 </StackPanel>
             </Grid>
 
