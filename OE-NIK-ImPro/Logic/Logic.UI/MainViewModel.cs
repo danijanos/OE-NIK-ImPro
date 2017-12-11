@@ -1,6 +1,8 @@
+using System;
 using System.Diagnostics;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
+using Microsoft.Win32;
 
 namespace OE.NIK.ImPro.Logic.UI
 {
@@ -36,6 +38,7 @@ namespace OE.NIK.ImPro.Logic.UI
                 () => 
                 {
                     Trace.TraceInformation("Open picture button pressed!");
+                    BrowseAndOpenPictureFile();
                     IsAPicture = true;
                     HistogramCommand.RaiseCanExecuteChanged();
                 }                             
@@ -48,6 +51,22 @@ namespace OE.NIK.ImPro.Logic.UI
                 },
                 () => IsAPicture
                 );
+        }
+
+        private void BrowseAndOpenPictureFile()
+        {
+            var fileDialog = new OpenFileDialog
+            {
+                Multiselect = false,
+                Filter = "Image Files(*.BMP;*.JPG;*.GIF)|*.BMP;*.JPG;*.GIF|All files (*.*)|*.*",
+                DefaultExt = ".JPG"
+            };
+            var fileDialogOk = fileDialog.ShowDialog();
+
+            if (fileDialogOk == true)
+            {
+                Console.WriteLine(fileDialog.FileName);
+            }
         }
 
         /// <summary>
