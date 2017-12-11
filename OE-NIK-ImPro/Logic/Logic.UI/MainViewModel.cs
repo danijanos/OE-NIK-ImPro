@@ -1,3 +1,4 @@
+using System.Diagnostics;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
 
@@ -22,24 +23,29 @@ namespace OE.NIK.ImPro.Logic.UI
         /// </summary>
         public MainViewModel()
         {
-            if (IsInDesignMode)
-            {
-                WindowTitle = "ImPro (design)";                
-            }
-            else
-            {
-                WindowTitle = "ImPro";                
-            }
+            //if (IsInDesignMode)
+            //{
+                                           
+            //}
+            //else
+            //{
+                
+            //}
+
+            OpenPictureCommand = new RelayCommand(
+                () => {
+                    Trace.TraceInformation("OK!");
+                });
         }
 
         /// <summary>
         /// Gets the title of the main window
         /// </summary>
-        public string WindowTitle { get; private set; }
+        public string WindowTitle { get; private set; } = "ImPro";
 
         public string ProgramName { get; private set; } = "ImPro - Image Processer";
 
-        public RelayCommand OpenPictureCommand { get; set; }
+        public RelayCommand OpenPictureCommand { get; private set; }
 
     }
 }
