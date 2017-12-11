@@ -53,7 +53,7 @@ namespace OE.NIK.ImPro.Logic.UI
         /// <summary>
         /// Indicates that the opened file is a picture or not
         /// </summary>
-        public bool IsAPicture { get; set; } = false;
+        public bool IsAPicture { get; set; }
 
         /// <summary>
         /// Gets the title of the main window
