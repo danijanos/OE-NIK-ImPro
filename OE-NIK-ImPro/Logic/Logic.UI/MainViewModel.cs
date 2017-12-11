@@ -1,4 +1,3 @@
-using System;
 using System.Diagnostics;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
@@ -63,9 +62,15 @@ namespace OE.NIK.ImPro.Logic.UI
 
             if (fileDialog.ShowDialog() == true)
             {
-                Console.WriteLine(fileDialog.FileName);
+                //BitmapImage image = new BitmapImage();
+                //image.BeginInit();
+                //image.UriSource = new Uri(fileDialog.FileName);
+                //image.EndInit();       
+                SourceOfTheSelectedImage = fileDialog.FileName;                            
             }
         }
+
+        public string SourceOfTheSelectedImage { get; set; } = @"D:\TEMP\egy_eredeti_baratsag1.jpg";
 
         /// <summary>
         /// Indicates that the opened file is a picture or not
@@ -80,7 +85,7 @@ namespace OE.NIK.ImPro.Logic.UI
         /// <summary>
         /// Gets the name of the program
         /// </summary>
-        public string ProgramName => "ImPro - Image Processer";
+        public string ProgramName { get; set; } = "ImPro - Image Processer";
 
         /// <summary>
         /// Command for open picture button
