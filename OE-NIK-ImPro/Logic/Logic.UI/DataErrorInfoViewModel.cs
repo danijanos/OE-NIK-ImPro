@@ -5,7 +5,7 @@ namespace OE.NIK.ImPro.Logic.UI
     /// <summary>
     /// ViewModel for IDataErrorInfo
     /// </summary>
-    class DataErrorInfoViewModel : ViewModelBase
+    public class DataErrorInfoViewModel : ViewModelBase
     {
 
     }
