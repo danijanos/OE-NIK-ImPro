@@ -43,7 +43,8 @@ namespace OE.NIK.ImPro.Logic.UI
                 () =>
                 {
                     Trace.TraceInformation("Create histogram button pressed!");
-                }
+                },
+                () => IsAPicture
                 );
         }
 
