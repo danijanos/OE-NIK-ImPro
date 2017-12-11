@@ -36,6 +36,8 @@ namespace OE.NIK.ImPro.Logic.UI
                 () => 
                 {
                     Trace.TraceInformation("Open picture button pressed!");
+                    IsAPicture = true;
+                    HistogramCommand.RaiseCanExecuteChanged();
                 }                             
                 );
 
