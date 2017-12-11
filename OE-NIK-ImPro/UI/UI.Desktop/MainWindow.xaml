@@ -4,9 +4,77 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
-        Title="{Binding WindowTitle, Mode=OneWay}" Height="350" Width="525" 
+        Title="{Binding WindowTitle, Mode=OneWay}" 
+        Height="900" Width="1200" 
+        WindowStartupLocation="CenterScreen"
         DataContext="{Binding Main, Source={StaticResource Locator}}">
+    
+    <!-- Main Grid -->
     <Grid>
-        
+
+        <!-- The row division of the main grid -->
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.7*" />
+            <RowDefinition Height="10*" />
+            <RowDefinition Height="0.5*" />
+        </Grid.RowDefinitions>
+
+        <!-- First row of main: the header -->
+        <Grid Grid.Row="0" Background="#FFFFEFEF">
+
+            <!-- Divison of the header: 1/2 -->
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <!-- First column of the header: Open picture section -->
+            <Grid Grid.Column="0">
+                <StackPanel Orientation="Horizontal">
+                    <Button Content="Open picture" Padding="10" Margin="5" Command="{Binding OpenPictureCommand}"/>
+                </StackPanel>
+            </Grid>
+
+            <!-- Second column of the header: program info -->
+            <Grid Grid.Column="1">
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center">
+                    <TextBlock Text="{Binding ProgramName}" FontSize="20" Padding="0 0 20 0"/>
+                </StackPanel>
+            </Grid>
+        </Grid>
+
+        <!-- Middle row of main: content and controls -->
+        <Grid Grid.Row="1">
+
+            <!-- The division of main's middle row: 1/9, 8/9 -->
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+
+            <!-- Left side : content-->
+            <Grid Grid.Column="0" Background="#FFBCC7C7">
+                <TextBlock Text="{Binding ProgramName}" FontSize="20" Padding="0 0 20 0"/>
+            </Grid>
+
+            <!-- Right side : controls -->
+            <Grid Grid.Column="1" Background="#FFDBE2E0">
+                <StackPanel Margin="10">
+                    <Button Content="Histogram" Padding="20" Margin="0 5" Command="{Binding HistogramCommand}"/>
+                    <Button Content="Grayscale" Padding="20" Margin="0 5"/>
+                    <Button Content="Blur" Padding="20" Margin="0 5"/>
+                </StackPanel>
+            </Grid>
+            
+        </Grid>
+
+        <!-- Last row of main: the footer -->
+        <Grid Grid.Row="2" Background="#FFB4AFB9">
+            <Viewbox>
+                <TextBlock Text="OE-NIK: ImPro" Foreground="White"/>
+            </Viewbox>
+        </Grid>
+
     </Grid>
+    
 </Window>

@@ -1,6 +1,6 @@
-using System.Threading.Tasks;
+using System.Diagnostics;
 using GalaSoft.MvvmLight;
-using GalaSoft.MvvmLight.Threading;
+using GalaSoft.MvvmLight.Command;
 
 namespace OE.NIK.ImPro.Logic.UI
 {
@@ -23,19 +23,57 @@ namespace OE.NIK.ImPro.Logic.UI
         /// </summary>
         public MainViewModel()
         {
-            if (IsInDesignMode)
-            {
-                WindowTitle = "ImPro (design)";                
-            }
-            else
-            {
-                WindowTitle = "ImPro";                
-            }
+            //if (IsInDesignMode)
+            //{
+                                           
+            //}
+            //else
+            //{
+                
+            //}
+
+            OpenPictureCommand = new RelayCommand(
+                () => 
+                {
+                    Trace.TraceInformation("Open picture button pressed!");
+                    IsAPicture = true;
+                    HistogramCommand.RaiseCanExecuteChanged();
+                }                             
+                );
+
+            HistogramCommand = new RelayCommand(
+                () =>
+                {
+                    Trace.TraceInformation("Create histogram button pressed!");
+                },
+                () => IsAPicture
+                );
         }
+
+        /// <summary>
+        /// Indicates that the opened file is a picture or not
+        /// </summary>
+        public bool IsAPicture { get; set; }
 
         /// <summary>
         /// Gets the title of the main window
         /// </summary>
-        public string WindowTitle { get; private set; }
+        public string WindowTitle => "ImPro";
+
+        /// <summary>
+        /// Gets the name of the program
+        /// </summary>
+        public string ProgramName => "ImPro - Image Processer";
+
+        /// <summary>
+        /// Command for open picture button
+        /// </summary>
+        public RelayCommand OpenPictureCommand { get; private set; }
+
+        /// <summary>
+        /// Command for create histogram button
+        /// </summary>
+        public RelayCommand HistogramCommand { get; private set; }
+
     }
 }
