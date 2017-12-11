@@ -27,21 +27,20 @@ namespace OE.NIK.ImPro.Logic.UI
         {
             //if (IsInDesignMode)
             //{
-                                           
+
             //}
             //else
             //{
-                
+
             //}
 
             OpenPictureCommand = new RelayCommand(
-                () => 
+                () =>
                 {
-                    Trace.TraceInformation("Open picture button pressed!");
                     BrowseAndOpenPictureFile();
                     IsAPicture = true;
                     HistogramCommand.RaiseCanExecuteChanged();
-                }                             
+                }
                 );
 
             HistogramCommand = new RelayCommand(
@@ -61,9 +60,8 @@ namespace OE.NIK.ImPro.Logic.UI
                 Filter = "Image Files(*.BMP;*.JPG;*.GIF)|*.BMP;*.JPG;*.GIF|All files (*.*)|*.*",
                 DefaultExt = ".JPG"
             };
-            var fileDialogOk = fileDialog.ShowDialog();
 
-            if (fileDialogOk == true)
+            if (fileDialog.ShowDialog() == true)
             {
                 Console.WriteLine(fileDialog.FileName);
             }
