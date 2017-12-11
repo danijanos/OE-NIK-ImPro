@@ -1,4 +1,5 @@
 using GalaSoft.MvvmLight;
+using GalaSoft.MvvmLight.Command;
 
 namespace OE.NIK.ImPro.Logic.UI
 {
@@ -37,5 +38,8 @@ namespace OE.NIK.ImPro.Logic.UI
         public string WindowTitle { get; private set; }
 
         public string ProgramName { get; private set; } = "ImPro - Image Processer";
+
+        public RelayCommand OpenPictureCommand { get; set; }
+
     }
 }
