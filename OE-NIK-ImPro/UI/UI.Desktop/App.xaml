@@ -5,11 +5,13 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              d1p1:Ignorable="d" 
              xmlns:d1p1="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             xmlns:uiLogic="clr-namespace:OE.NIK.ImPro.Logic.UI;assembly=ImPro.Logic.UI">
-  <Application.Resources>
+             xmlns:uiLogic="clr-namespace:OE.NIK.ImPro.Logic.UI;assembly=ImPro.Logic.UI"
+             xmlns:converters="clr-namespace:OE.NIK.ImPro.Logic.UI.Converters;assembly=ImPro.Logic.UI"
+             >
+    <Application.Resources>
     <ResourceDictionary>
-      <uiLogic:ViewModelLocator x:Key="Locator" 
-                           d:IsDataSource="True" />
+      <uiLogic:ViewModelLocator x:Key="Locator" d:IsDataSource="True" />
+            <converters:SourceToImageConverter x:Key="SourceToImageConverter" />
     </ResourceDictionary>
   </Application.Resources>
 </Application>
