@@ -2,6 +2,9 @@
 {
     public class ColorToGrayscaleConverter
     {
+        public ColorToGrayscaleConverter(string filePath)
+        {
 
+        }
     }
 }
