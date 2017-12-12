@@ -2,5 +2,14 @@
 {
     public class MessageListener
     {
+        public MessageListener()
+        {
+            InitMessenger();
+        }
+
+        private void InitMessenger()
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }
