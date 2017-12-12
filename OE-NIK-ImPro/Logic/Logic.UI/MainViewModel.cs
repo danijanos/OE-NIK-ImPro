@@ -66,11 +66,14 @@ namespace OE.NIK.ImPro.Logic.UI
                 //image.BeginInit();
                 //image.UriSource = new Uri(fileDialog.FileName);
                 //image.EndInit();                       
-                SourceOfTheSelectedImage = fileDialog.FileName;                
+                SourceOfTheSelectedImage = fileDialog.FileName;
             }
         }
 
-        public string SourceOfTheSelectedImage { get; set; } = @"D:\TEMP\egy_eredeti_baratsag1.jpg";
+        /// <summary>
+        /// Gets or sets the source of the image
+        /// </summary>
+        public string SourceOfTheSelectedImage {get; set;}
 
         /// <summary>
         /// Indicates that the opened file is a picture or not

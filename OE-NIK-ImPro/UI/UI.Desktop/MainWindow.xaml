@@ -53,7 +53,7 @@
 
             <!-- Left side : content-->
             <Grid Grid.Column="0">
-                <Image Margin="5" Stretch="Uniform" Source="{Binding SourceOfTheSelectedImage, Converter={StaticResource SourceToImageConverter}}" />
+                <Image Margin="5" Stretch="Uniform" Source="{Binding SourceOfTheSelectedImage, Converter={StaticResource SourceToImageConverter}, Mode=TwoWay, NotifyOnSourceUpdated=True, UpdateSourceTrigger=PropertyChanged}" />
             </Grid>
 
             <!-- Right side : controls -->
