@@ -1,7 +1,4 @@
-﻿using System.Diagnostics;
-using System.Windows;
-using GalaSoft.MvvmLight.Messaging;
-using OE.NIK.ImPro.Logic.UI;
+﻿using System.Windows;
 
 namespace OE.NIK.ImPro.UI.Desktop
 {
@@ -13,13 +10,6 @@ namespace OE.NIK.ImPro.UI.Desktop
         public MainWindow()
         {
             InitializeComponent();
-            Messenger.Default.Register<HistogramPresenter>(
-                this,
-                msg =>
-                {
-                    Debug.WriteLine(msg.TestText);
-                }
-                );
         }
     }
 }
