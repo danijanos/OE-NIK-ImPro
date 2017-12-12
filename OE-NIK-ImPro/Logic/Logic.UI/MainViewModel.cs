@@ -1,4 +1,3 @@
-using System.Diagnostics;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
 using Microsoft.Win32;
@@ -43,10 +42,7 @@ namespace OE.NIK.ImPro.Logic.UI
                 );
 
             HistogramCommand = new RelayCommand(
-                () =>
-                {
-                    Trace.TraceInformation("Create histogram button pressed!");
-                },
+                () => MessengerInstance.Send(new HistogramPresenter("Hello!"))                ,
                 () => IsAPicture
                 );
         }
