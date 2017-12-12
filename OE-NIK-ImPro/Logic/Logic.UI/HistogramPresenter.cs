@@ -1,12 +1,30 @@
-﻿namespace OE.NIK.ImPro.Logic.UI
+﻿using System.Collections.Generic;
+using System.Drawing;
+using OE.NIK.ImPro.Logic.UI.Models;
+
+namespace OE.NIK.ImPro.Logic.UI
 {
     public class HistogramPresenter
     {
-        public HistogramPresenter(string filePath)
+        public HistogramPresenter(Bitmap sourceBitmap)
         {
-            FilePath = filePath;
+            var histogramCalculator = new HistogramCalculator(sourceBitmap);
+            ImageHistogramValues = histogramCalculator.LrgbBucket;
+            LuminosityFromSourceImage = GetLuminosityFromImageHistogramValues();
         }
 
-        public string FilePath { get; set; }
+        private IEnumerable<int> GetLuminosityFromImageHistogramValues()
+        {
+            List<int> luminosityList = new List<int>();
+            foreach (int i in ImageHistogramValues[0])
+            {
+                luminosityList.Add(i);
+            }
+            return luminosityList;
+        }
+
+        public int[][] ImageHistogramValues { get; set; }
+
+        public IEnumerable<int> LuminosityFromSourceImage { get; set; }
     }
 }

@@ -1,4 +1,7 @@
 ﻿using GalaSoft.MvvmLight.Messaging;
+using LiveCharts;
+using LiveCharts.Helpers;
+using LiveCharts.Wpf;
 using OE.NIK.ImPro.Logic.UI;
 
 namespace OE.NIK.ImPro.UI.Desktop
@@ -23,11 +26,21 @@ namespace OE.NIK.ImPro.UI.Desktop
                 msg =>
                 {
                     var window = new HistogramWindow();
-                    var model = window.DataContext as HistogramViewModel;
+                    var model = window.DataContext as HistogramViewModel; 
                     if (model != null)
-                    {
-                        model.FilePath = msg.FilePath;
+                    {                        
+                        model.HistogramValues = msg.ImageHistogramValues;
                     }
+
+                    window.SeriesCollection = new SeriesCollection
+                    {
+                        new ColumnSeries
+                        {
+                            Title = "Histogram",
+                            Values = msg.LuminosityFromSourceImage.AsChartValues()
+                        }                        
+                    };                    
+
                     window.ShowDialog();
                 });
         }
