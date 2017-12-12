@@ -3,13 +3,12 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:OE.NIK.ImPro.UI.Desktop"
         mc:Ignorable="d"
         DataContext="{Binding HistogramViewModel, Source={StaticResource Locator}}"
-        Title="{Binding MessageFromParent}" Height="500" Width="500"
+        Title="Histogram" Height="500" Width="500"
         WindowStartupLocation="CenterScreen"
         >
     <Grid>
-        <TextBlock Text="{Binding MessageFromParent}" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20"/>
+        <Image Source="{Binding FilePath}" Stretch="Uniform" Margin="5"/>
     </Grid>
 </Window>

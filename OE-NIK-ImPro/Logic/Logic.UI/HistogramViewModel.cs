@@ -7,14 +7,6 @@ namespace OE.NIK.ImPro.Logic.UI
     /// </summary>
     public class HistogramViewModel : ViewModelBase
     {
-        public HistogramViewModel()
-        {
-            if (IsInDesignMode)
-            {
-                
-            }
-        }
-
-        public string MessageFromParent { get; set; }
+        public string FilePath { get; set; }
     }
 }

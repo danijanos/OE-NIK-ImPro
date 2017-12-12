@@ -24,7 +24,7 @@ namespace OE.NIK.ImPro.Logic.UI
                 );
 
             HistogramCommand = new RelayCommand(
-                () => MessengerInstance.Send(new HistogramPresenter("Hello!"))                ,
+                () => MessengerInstance.Send(new HistogramPresenter(SourceOfTheSelectedImage))                ,
                 () => IsAPicture
                 );
         }
