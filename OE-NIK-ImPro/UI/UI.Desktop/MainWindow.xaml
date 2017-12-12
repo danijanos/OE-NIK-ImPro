@@ -8,7 +8,6 @@
         Height="900" Width="1200" 
         WindowStartupLocation="CenterScreen"
         DataContext="{Binding Main, Source={StaticResource Locator}}">
-    
     <!-- Main Grid -->
     <Grid>
 
@@ -54,7 +53,7 @@
 
             <!-- Left side : content-->
             <Grid Grid.Column="0">
-                <Image Margin="5" Stretch="Uniform" Source="{Binding SourceOfTheSelectedImage}" />
+                <Image Margin="5" Stretch="Uniform" Source="{Binding SourceOfTheSelectedImage, Converter={StaticResource SourceToImageConverter}, Mode=TwoWay, NotifyOnSourceUpdated=True, UpdateSourceTrigger=PropertyChanged}" />
             </Grid>
 
             <!-- Right side : controls -->
@@ -65,7 +64,7 @@
                     <Button Content="Blur" Padding="20" Margin="0 5"/>
                 </StackPanel>
             </Grid>
-            
+
         </Grid>
 
         <!-- Last row of main: the footer -->
@@ -76,5 +75,5 @@
         </Grid>
 
     </Grid>
-    
+
 </Window>
