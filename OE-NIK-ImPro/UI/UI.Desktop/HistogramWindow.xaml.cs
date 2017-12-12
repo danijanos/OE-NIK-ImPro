@@ -1,27 +1,32 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
+﻿using LiveCharts;
+using LiveCharts.Wpf;
 
 namespace OE.NIK.ImPro.UI.Desktop
 {
     /// <summary>
     /// Interaction logic for HistogramWindow.xaml
     /// </summary>
-    public partial class HistogramWindow : Window
+    public partial class HistogramWindow
     {
         public HistogramWindow()
         {
             InitializeComponent();
+
+            SeriesCollection = new SeriesCollection
+            {
+                new ColumnSeries
+                {
+                    Title = "Histogram",
+                    Values = new ChartValues<double> { 10, 50, 39, 50 }
+                }
+            };
+
+            Labels = new[] { "Maria", "Susan", "Charles", "Frida" };            
+
+            DataContext = this;
         }
+
+        public SeriesCollection SeriesCollection { get; set; }
+        public string[] Labels { get; set; }        
     }
 }

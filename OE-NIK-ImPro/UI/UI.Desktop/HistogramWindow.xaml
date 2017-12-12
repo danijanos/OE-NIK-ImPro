@@ -3,12 +3,24 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        mc:Ignorable="d"
-        DataContext="{Binding HistogramViewModel, Source={StaticResource Locator}}"
+        xmlns:wpf="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
+        xmlns:desktop="clr-namespace:OE.NIK.ImPro.UI.Desktop"
+        mc:Ignorable="d"        
         Title="Histogram" Height="500" Width="500"
         WindowStartupLocation="CenterScreen"
+        d:DataContext="{d:DesignInstance desktop:HistogramWindow}"
         >
     <Grid>
-        <Image Source="{Binding FilePath}" Stretch="Uniform" Margin="5"/>
+        <wpf:CartesianChart Series="{Binding SeriesCollection}" LegendLocation="None">
+            
+            <wpf:CartesianChart.AxisX>
+                <wpf:Axis Title="Histogram" Labels="{Binding Labels}" />
+            </wpf:CartesianChart.AxisX>
+            
+            <wpf:CartesianChart.AxisY>
+                <wpf:Axis Title="H(n)" />
+            </wpf:CartesianChart.AxisY>
+            
+        </wpf:CartesianChart>
     </Grid>
 </Window>

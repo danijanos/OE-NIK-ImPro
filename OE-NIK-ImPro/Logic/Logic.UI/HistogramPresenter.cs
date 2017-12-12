@@ -2,11 +2,11 @@
 {
     public class HistogramPresenter
     {
-        public HistogramPresenter(string filePath)
+        public HistogramPresenter(string imageSource)
         {
-            FilePath = filePath;
+            Test = imageSource;
         }
-
-        public string FilePath { get; set; }
+                
+        public string Test { get; set; }
     }
 }
