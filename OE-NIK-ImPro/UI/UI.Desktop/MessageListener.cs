@@ -1,5 +1,4 @@
-﻿using System;
-using GalaSoft.MvvmLight.Messaging;
+﻿using GalaSoft.MvvmLight.Messaging;
 using OE.NIK.ImPro.Logic.UI;
 
 namespace OE.NIK.ImPro.UI.Desktop
