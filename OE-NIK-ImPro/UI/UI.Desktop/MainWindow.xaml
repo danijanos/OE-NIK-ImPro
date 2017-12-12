@@ -3,12 +3,13 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        mc:Ignorable="d"
-        Title="{Binding WindowTitle, Mode=OneWay}" 
+        mc:Ignorable="d"        
         Height="900" Width="1200" 
         WindowStartupLocation="CenterScreen"
-        DataContext="{Binding Main, Source={StaticResource Locator}}">
-    
+        Title="ImPro 1.0" 
+        DataContext="{Binding Main, Source={StaticResource Locator}}"        
+        >
+    <!-- Dummy property binding to use MessageListener as a resource -->
     <Window.IsEnabled>
         <Binding Path="BindableProperty" Source="{StaticResource MessageListener}"/>
     </Window.IsEnabled>
@@ -20,11 +21,11 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="0.7*" />
             <RowDefinition Height="10*" />
-            <RowDefinition Height="0.5*" />
+            <RowDefinition Height="0.3*" />
         </Grid.RowDefinitions>
 
         <!-- First row of main: the header -->
-        <Grid Grid.Row="0" Background="#FFFFEFEF">
+        <Grid Grid.Row="0" Background="#FFEDEEEA">
 
             <!-- Divison of the header: 1/2 -->
             <Grid.ColumnDefinitions>
@@ -42,7 +43,7 @@
             <!-- Second column of the header: program info -->
             <Grid Grid.Column="1">
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center">
-                    <TextBlock Text="{Binding ProgramName, Mode=TwoWay}" FontSize="20" Padding="0 0 20 0"/>
+                    <TextBlock Text="ImPro - Image Processer" FontSize="20" Padding="0 0 20 0"/>
                 </StackPanel>
             </Grid>
         </Grid>
@@ -57,12 +58,12 @@
             </Grid.ColumnDefinitions>
 
             <!-- Left side : content-->
-            <Grid Grid.Column="0">
-                <Image Margin="5" Stretch="Uniform" Source="{Binding SourceOfTheSelectedImage, Converter={StaticResource SourceToImageConverter}, Mode=TwoWay, NotifyOnSourceUpdated=True, UpdateSourceTrigger=PropertyChanged}" />
+            <Grid Grid.Column="0" >
+                <Image Margin="5" Stretch="Uniform" Source="{Binding SourceOfTheSelectedImage}" />
             </Grid>
 
             <!-- Right side : controls -->
-            <Grid Grid.Column="1" Background="#FFDBE2E0">
+            <Grid Grid.Column="1" Background="#FFFBF7F7">
                 <StackPanel Margin="10">
                     <Button Content="Histogram" Padding="20" Margin="0 5" Command="{Binding HistogramCommand}"/>
                     <Button Content="Grayscale" Padding="20" Margin="0 5"/>
@@ -73,9 +74,9 @@
         </Grid>
 
         <!-- Last row of main: the footer -->
-        <Grid Grid.Row="2" Background="#FFB4AFB9">
+        <Grid Grid.Row="2" Background="#FFE6E6E6">
             <Viewbox>
-                <TextBlock Text="OE-NIK: ImPro" Foreground="White"/>
+                <TextBlock Text="OE-NIK: ImPro (2017)" />
             </Viewbox>
         </Grid>
 
