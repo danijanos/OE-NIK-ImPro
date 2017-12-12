@@ -1,3 +1,4 @@
+using System.Drawing;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
 using Microsoft.Win32;
@@ -18,15 +19,23 @@ namespace OE.NIK.ImPro.Logic.UI
                 () =>
                 {
                     BrowseAndOpenPictureFile();
+                    CreateBitmapFromSourceImage();
                     IsAPicture = true;
                     HistogramCommand.RaiseCanExecuteChanged();
                 }
                 );
 
             HistogramCommand = new RelayCommand(
-                () => MessengerInstance.Send(new HistogramPresenter(SourceOfTheSelectedImage))                ,
+                () => MessengerInstance.Send(new HistogramPresenter(BitmapFromImage))                ,
                 () => IsAPicture
                 );
+        }
+        
+        public Bitmap BitmapFromImage { get; set; }
+
+        private void CreateBitmapFromSourceImage()
+        {
+            BitmapFromImage = (Bitmap)Image.FromFile(SourceOfTheSelectedImage);
         }
 
         private void BrowseAndOpenPictureFile()

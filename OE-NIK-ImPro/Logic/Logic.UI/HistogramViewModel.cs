@@ -8,6 +8,6 @@ namespace OE.NIK.ImPro.Logic.UI
     /// </summary>
     public class HistogramViewModel : ViewModelBase
     {
-        public string Test { get; set; }        
+        public int[][] HistogramValues { get; set; }
     }
 }

@@ -33,10 +33,10 @@ namespace OE.NIK.ImPro.Logic.UI.Models
         /// </summary>
         public BitmapData SourceImageToBmData { get; private set; }
 
-        public HistogramCalculator(Bitmap sourceImage, int imageWidth, int imageHeight)
+        public HistogramCalculator(Bitmap sourceImage)
         {
-            ImageWidth = imageWidth;
-            ImageHeight = imageHeight;
+            ImageWidth = sourceImage.Width;
+            ImageHeight = sourceImage.Height;
             IsImageGrayscale = (sourceImage.PixelFormat == PixelFormat.Format8bppIndexed);
 
             // lock bitmap data
