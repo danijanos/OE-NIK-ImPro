@@ -1,4 +1,5 @@
-﻿using GalaSoft.MvvmLight.Messaging;
+﻿using System;
+using GalaSoft.MvvmLight.Messaging;
 using OE.NIK.ImPro.Logic.UI;
 
 namespace OE.NIK.ImPro.UI.Desktop
@@ -26,7 +27,7 @@ namespace OE.NIK.ImPro.UI.Desktop
                     var model = window.DataContext as HistogramViewModel;
                     if (model != null)
                     {
-                        
+                        Console.WriteLine(msg.TestText);
                     }
                     window.ShowDialog();
                 });
