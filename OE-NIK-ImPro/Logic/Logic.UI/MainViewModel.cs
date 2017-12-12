@@ -65,8 +65,8 @@ namespace OE.NIK.ImPro.Logic.UI
                 //BitmapImage image = new BitmapImage();
                 //image.BeginInit();
                 //image.UriSource = new Uri(fileDialog.FileName);
-                //image.EndInit();       
-                SourceOfTheSelectedImage = fileDialog.FileName;                            
+                //image.EndInit();                       
+                SourceOfTheSelectedImage = fileDialog.FileName;                
             }
         }
 
