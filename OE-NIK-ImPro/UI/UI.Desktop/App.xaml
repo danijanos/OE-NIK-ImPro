@@ -7,11 +7,13 @@
              xmlns:d1p1="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:uiLogic="clr-namespace:OE.NIK.ImPro.Logic.UI;assembly=ImPro.Logic.UI"
              xmlns:converters="clr-namespace:OE.NIK.ImPro.Logic.UI.Converters;assembly=ImPro.Logic.UI"
+             xmlns:desktop="clr-namespace:OE.NIK.ImPro.UI.Desktop"
              >
     <Application.Resources>
-    <ResourceDictionary>
-      <uiLogic:ViewModelLocator x:Key="Locator" d:IsDataSource="True" />
+        <ResourceDictionary>
+            <uiLogic:ViewModelLocator x:Key="Locator" d:IsDataSource="True" />
+            <desktop:MessageListener x:Key="MessageListener" />
             <converters:SourceToImageConverter x:Key="SourceToImageConverter" />
-    </ResourceDictionary>
-  </Application.Resources>
+        </ResourceDictionary>
+    </Application.Resources>
 </Application>

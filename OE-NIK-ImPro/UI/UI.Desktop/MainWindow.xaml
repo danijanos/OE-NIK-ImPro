@@ -8,6 +8,11 @@
         Height="900" Width="1200" 
         WindowStartupLocation="CenterScreen"
         DataContext="{Binding Main, Source={StaticResource Locator}}">
+    
+    <Window.IsEnabled>
+        <Binding Path="BindableProperty" Source="{StaticResource MessageListener}"/>
+    </Window.IsEnabled>
+    
     <!-- Main Grid -->
     <Grid>
 
