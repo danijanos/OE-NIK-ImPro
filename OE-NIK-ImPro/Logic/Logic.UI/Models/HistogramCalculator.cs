@@ -59,10 +59,12 @@ namespace OE.NIK.ImPro.Logic.UI.Models
             // Initialize the bucket
             LrgbBucket = new[] { new int[256], new int[256], new int[256], new int[256] };
 
+            // Initialize pointers
             byte* pointer = (byte*)SourceImageToBmData.Scan0.ToPointer();
             int pointerIncrementation = IsImageGrayscale ? 1 : 3;
             int remain = SourceImageToBmData.Stride - ImageWidth * pointerIncrementation;
 
+            // walk through the image pixel by pixel
             for (int i = 0; i < ImageHeight; ++i, pointer += remain)
                 for (int j = 0; j < ImageWidth; j++, pointer += pointerIncrementation)
                 {
