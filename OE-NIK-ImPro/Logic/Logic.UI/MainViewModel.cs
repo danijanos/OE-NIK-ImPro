@@ -1,6 +1,7 @@
 using System.Diagnostics;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
+using Microsoft.Win32;
 
 namespace OE.NIK.ImPro.Logic.UI
 {
@@ -25,20 +26,20 @@ namespace OE.NIK.ImPro.Logic.UI
         {
             //if (IsInDesignMode)
             //{
-                                           
+
             //}
             //else
             //{
-                
+
             //}
 
             OpenPictureCommand = new RelayCommand(
-                () => 
+                () =>
                 {
-                    Trace.TraceInformation("Open picture button pressed!");
+                    BrowseAndOpenPictureFile();
                     IsAPicture = true;
                     HistogramCommand.RaiseCanExecuteChanged();
-                }                             
+                }
                 );
 
             HistogramCommand = new RelayCommand(
@@ -49,6 +50,27 @@ namespace OE.NIK.ImPro.Logic.UI
                 () => IsAPicture
                 );
         }
+
+        private void BrowseAndOpenPictureFile()
+        {
+            var fileDialog = new OpenFileDialog
+            {
+                Multiselect = false,
+                Filter = "Image Files(*.BMP;*.JPG;*.GIF)|*.BMP;*.JPG;*.GIF|All files (*.*)|*.*",
+                DefaultExt = ".JPG"
+            };
+
+            if (fileDialog.ShowDialog() == true)
+            {
+                //BitmapImage image = new BitmapImage();
+                //image.BeginInit();
+                //image.UriSource = new Uri(fileDialog.FileName);
+                //image.EndInit();                       
+                SourceOfTheSelectedImage = fileDialog.FileName;                
+            }
+        }
+
+        public string SourceOfTheSelectedImage { get; set; } = @"D:\TEMP\egy_eredeti_baratsag1.jpg";
 
         /// <summary>
         /// Indicates that the opened file is a picture or not
@@ -63,17 +85,17 @@ namespace OE.NIK.ImPro.Logic.UI
         /// <summary>
         /// Gets the name of the program
         /// </summary>
-        public string ProgramName => "ImPro - Image Processer";
+        public string ProgramName { get; set; } = "ImPro - Image Processer";
 
         /// <summary>
         /// Command for open picture button
         /// </summary>
-        public RelayCommand OpenPictureCommand { get; private set; }
+        public RelayCommand OpenPictureCommand { get; }
 
         /// <summary>
         /// Command for create histogram button
         /// </summary>
-        public RelayCommand HistogramCommand { get; private set; }
+        public RelayCommand HistogramCommand { get; }
 
     }
 }

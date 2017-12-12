@@ -38,7 +38,7 @@
             <!-- Second column of the header: program info -->
             <Grid Grid.Column="1">
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center">
-                    <TextBlock Text="{Binding ProgramName}" FontSize="20" Padding="0 0 20 0"/>
+                    <TextBlock Text="{Binding ProgramName, Mode=TwoWay}" FontSize="20" Padding="0 0 20 0"/>
                 </StackPanel>
             </Grid>
         </Grid>
@@ -53,8 +53,8 @@
             </Grid.ColumnDefinitions>
 
             <!-- Left side : content-->
-            <Grid Grid.Column="0" Background="#FFBCC7C7">
-                <TextBlock Text="{Binding ProgramName}" FontSize="20" Padding="0 0 20 0"/>
+            <Grid Grid.Column="0">
+                <Image Margin="5" Stretch="Uniform" Source="{Binding SourceOfTheSelectedImage}" />
             </Grid>
 
             <!-- Right side : controls -->
