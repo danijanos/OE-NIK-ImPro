@@ -5,16 +5,7 @@ using Microsoft.Win32;
 namespace OE.NIK.ImPro.Logic.UI
 {
     /// <summary>
-    /// This class contains properties that the main View can data bind to.
-    /// <para>
-    /// Use the <strong>mvvminpc</strong> snippet to add bindable properties to this ViewModel.
-    /// </para>
-    /// <para>
-    /// You can also use Blend to data bind with the tool's support.
-    /// </para>
-    /// <para>
-    /// See http://www.galasoft.ch/mvvm
-    /// </para>
+    /// This class contains properties that the main View can data bind to.     
     /// </summary>
     public class MainViewModel : ViewModelBase
     {
@@ -23,15 +14,6 @@ namespace OE.NIK.ImPro.Logic.UI
         /// </summary>
         public MainViewModel()
         {
-            //if (IsInDesignMode)
-            //{
-
-            //}
-            //else
-            //{
-
-            //}
-
             OpenPictureCommand = new RelayCommand(
                 () =>
                 {
@@ -57,12 +39,8 @@ namespace OE.NIK.ImPro.Logic.UI
             };
 
             if (fileDialog.ShowDialog() == true)
-            {
-                //BitmapImage image = new BitmapImage();
-                //image.BeginInit();
-                //image.UriSource = new Uri(fileDialog.FileName);
-                //image.EndInit();                       
-                SourceOfTheSelectedImage = fileDialog.FileName;
+            {                   
+                SourceOfTheSelectedImage = fileDialog.FileName;                
             }
         }
 
@@ -75,16 +53,6 @@ namespace OE.NIK.ImPro.Logic.UI
         /// Indicates that the opened file is a picture or not
         /// </summary>
         public bool IsAPicture { get; set; }
-
-        /// <summary>
-        /// Gets the title of the main window
-        /// </summary>
-        public string WindowTitle => "ImPro";
-
-        /// <summary>
-        /// Gets the name of the program
-        /// </summary>
-        public string ProgramName { get; set; } = "ImPro - Image Processer";
 
         /// <summary>
         /// Command for open picture button

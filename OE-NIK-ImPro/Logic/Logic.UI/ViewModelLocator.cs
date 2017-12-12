@@ -41,14 +41,14 @@ namespace OE.NIK.ImPro.Logic.UI
             }
 
             SimpleIoc.Default.Register<MainViewModel>();
-            SimpleIoc.Default.Register<DataErrorInfoViewModel>();
+            SimpleIoc.Default.Register<HistogramViewModel>();
         }
 
         /// <summary>
         /// Retrives the view model for the main view
         /// </summary>
         public MainViewModel Main => ServiceLocator.Current.GetInstance<MainViewModel>();
-        public DataErrorInfoViewModel DataErrorInfo => ServiceLocator.Current.GetInstance<DataErrorInfoViewModel>();
+        public HistogramViewModel HistogramViewModel => ServiceLocator.Current.GetInstance<HistogramViewModel>();
 
         public static void Cleanup()
         {
