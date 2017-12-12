@@ -40,11 +40,12 @@ namespace OE.NIK.ImPro.Logic.UI.Models
             IsImageGrayscale = (sourceImage.PixelFormat == PixelFormat.Format8bppIndexed);
 
             // lock bitmap data
-            LockBitmapData(sourceImage);
+            LockSourceImageBits(sourceImage);
             FillLrgbBucket();
+            sourceImage.UnlockBits(SourceImageToBmData);
         }
 
-        private void LockBitmapData(Bitmap sourceImage)
+        private void LockSourceImageBits(Bitmap sourceImage)
         {
             SourceImageToBmData = sourceImage.LockBits(
                 new Rectangle(0, 0, ImageWidth, ImageHeight),
