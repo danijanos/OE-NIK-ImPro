@@ -75,6 +75,7 @@
     <Compile Include="Converters\SourceToImageConverter.cs" />
     <Compile Include="DataErrorInfoViewModel.cs" />
     <Compile Include="HistogramPresenter.cs" />
+    <Compile Include="HistogramViewModel.cs" />
     <Compile Include="MainViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModelLocator.cs" />

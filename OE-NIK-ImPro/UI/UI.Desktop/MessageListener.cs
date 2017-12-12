@@ -23,6 +23,7 @@ namespace OE.NIK.ImPro.UI.Desktop
                 msg =>
                 {
                     var window = new HistogramWindow();
+                    var model = window.DataContext as HistogramViewModel;
                 }
                 );
         }
