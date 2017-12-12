@@ -24,8 +24,17 @@ namespace OE.NIK.ImPro.UI.Desktop
                 {
                     var window = new HistogramWindow();
                     var model = window.DataContext as HistogramViewModel;
-                }
-                );
+                    if (model != null)
+                    {
+                        
+                    }
+                    window.ShowDialog();
+                });
         }
+
+        /// <summary>
+        /// Property to help put this type into the resources
+        /// </summary>
+        public bool BindableProperty => true;
     }
 }
