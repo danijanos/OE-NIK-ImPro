@@ -27,7 +27,7 @@ namespace OE.NIK.ImPro.UI.Desktop
                     var model = window.DataContext as HistogramViewModel;
                     if (model != null)
                     {
-                        Console.WriteLine(msg.TestText);
+                        model.MessageFromParent = msg.TestText;
                     }
                     window.ShowDialog();
                 });

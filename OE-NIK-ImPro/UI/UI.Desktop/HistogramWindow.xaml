@@ -5,8 +5,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:OE.NIK.ImPro.UI.Desktop"
         mc:Ignorable="d"
-        Title="HistogramWindow" Height="300" Width="300">
+        DataContext="{Binding HistogramViewModel, Source={StaticResource Locator}}"
+        Title="{Binding MessageFromParent}" Height="500" Width="500"
+        WindowStartupLocation="CenterScreen"
+        >
     <Grid>
-        
+        <TextBlock Text="{Binding MessageFromParent}" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20"/>
     </Grid>
 </Window>
