@@ -27,28 +27,28 @@ namespace OE.NIK.ImPro.Logic.UI.Models
         /// <summary>
         /// Gets the width of the source image
         /// </summary>
-        public int ImageWidth { get; private set; }
+        public int ImageWidth { get; internal set; }
 
         /// <summary>
         /// Gets the heigth of the source image
         /// </summary>
-        public int ImageHeight { get; private set; }
+        public int ImageHeight { get; internal set; }
 
         /// <summary>
         /// Determines that the source image is weather grayscale or not
         /// </summary>
-        public bool IsImageGrayscale { get; private set; }
+        public bool IsImageGrayscale { get; internal set; }
 
         /// <summary>
         /// Stores the source image as BitmapData
         /// </summary>
-        public BitmapData SourceImageToBmData { get; private set; }
+        public BitmapData SourceImageToBmData { get; internal set; }
 
         /// <summary>
         /// Locks the bits of the given bitmap image and add it to <see cref="SourceImageToBmData"/> property for further processing
         /// </summary>
         /// <param name="sourceImage">The source of the image as a Bitmap</param>
-        private void LockSourceImageBits(Bitmap sourceImage)
+        internal void LockSourceImageBits(Bitmap sourceImage)
         {
             SourceImageToBmData = sourceImage.LockBits(
                 new Rectangle(0, 0, ImageWidth, ImageHeight),

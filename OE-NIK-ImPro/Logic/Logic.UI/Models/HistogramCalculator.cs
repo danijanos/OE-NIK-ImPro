@@ -13,27 +13,7 @@ namespace OE.NIK.ImPro.Logic.UI.Models
         /// </summary>
         public int[][] LrgbBucket { get; private set; }
 
-        /// <summary>
-        /// Gets the width of the source image
-        /// </summary>
-        public int ImageWidth { get; private set; }
-
-        /// <summary>
-        /// Gets the heigth of the source image
-        /// </summary>
-        public int ImageHeight { get; private set; }
-
-        /// <summary>
-        /// Determines that the source image is weather grayscale or not
-        /// </summary>
-        public bool IsImageGrayscale { get; private set; }
-
-        /// <summary>
-        /// Stores the source image as BitmapData
-        /// </summary>
-        public BitmapData SourceImageToBmData { get; private set; }
-
-        public HistogramCalculator(Bitmap sourceImage)
+        public HistogramCalculator(Bitmap sourceImage) : base(sourceImage)
         {
             ImageWidth = sourceImage.Width;
             ImageHeight = sourceImage.Height;
@@ -43,15 +23,6 @@ namespace OE.NIK.ImPro.Logic.UI.Models
             LockSourceImageBits(sourceImage);
             FillLrgbBucket();
             sourceImage.UnlockBits(SourceImageToBmData);
-        }
-
-        private void LockSourceImageBits(Bitmap sourceImage)
-        {
-            SourceImageToBmData = sourceImage.LockBits(
-                new Rectangle(0, 0, ImageWidth, ImageHeight),
-                ImageLockMode.ReadOnly,
-                (IsImageGrayscale ? PixelFormat.Format8bppIndexed : PixelFormat.Format24bppRgb)
-                );
         }
 
         private unsafe void FillLrgbBucket()
