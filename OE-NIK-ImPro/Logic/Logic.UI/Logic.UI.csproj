@@ -86,6 +86,7 @@
     <Compile Include="HistogramPresenter.cs" />
     <Compile Include="HistogramViewModel.cs" />
     <Compile Include="MainViewModel.cs" />
+    <Compile Include="Models\BaseImageProcesser.cs" />
     <Compile Include="Models\ColorToGrayscaleConverter.cs" />
     <Compile Include="Models\HistogramCalculator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
