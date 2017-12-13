@@ -26,8 +26,12 @@ namespace OE.NIK.ImPro.Logic.UI.Models
         {
             if (IsImageGrayscale)
             {
-                //Scan for the first line
+                // Scan for the first line
                 IntPtr ptr = SourceImageInBmData.Scan0;
+
+                // Declare an array in which RGB values will be stored
+                int size = Math.Abs(SourceImageInBmData.Stride) * ImageHeight;
+                byte[] rgbValues = new byte[size];
             }
         }
     }
