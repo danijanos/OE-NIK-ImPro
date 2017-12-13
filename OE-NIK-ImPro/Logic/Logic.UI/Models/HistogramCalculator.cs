@@ -1,5 +1,4 @@
 ﻿using System.Drawing;
-using System.Drawing.Imaging;
 
 namespace OE.NIK.ImPro.Logic.UI.Models
 {
@@ -15,12 +14,6 @@ namespace OE.NIK.ImPro.Logic.UI.Models
         /// <param name="sourceImage">The source of the image</param>
         public HistogramCalculator(Bitmap sourceImage) : base(sourceImage)
         {
-            ImageWidth = sourceImage.Width;
-            ImageHeight = sourceImage.Height;
-            IsImageGrayscale = (sourceImage.PixelFormat == PixelFormat.Format8bppIndexed);
-
-            // lock bitmap data
-            LockSourceImageBits(sourceImage);
             FillLrgbBucket();
             sourceImage.UnlockBits(SourceImageToBmData);
         }

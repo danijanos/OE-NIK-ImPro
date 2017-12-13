@@ -18,10 +18,10 @@ namespace OE.NIK.ImPro.Logic.UI.Models
             ImageHeight = sourceImage.Height;
             IsImageGrayscale = (sourceImage.PixelFormat == PixelFormat.Format8bppIndexed);
 
-            // lock bitmap data
+            // lock bitmap data for processing
             LockSourceImageBits(sourceImage);
             // Todo: call the function that consumes and process the image
-            sourceImage.UnlockBits(SourceImageToBmData);
+            // TODO: every child instance should unlock bits => sourceImage.UnlockBits(SourceImageToBmData); !!!
         }
 
         /// <summary>
