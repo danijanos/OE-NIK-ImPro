@@ -73,5 +73,9 @@ namespace OE.NIK.ImPro.Logic.UI
         /// </summary>
         public RelayCommand HistogramCommand { get; }
 
+        /// <summary>
+        /// Command for create histogram button
+        /// </summary>
+        public RelayCommand GrayscaleCommand { get; }
     }
 }
