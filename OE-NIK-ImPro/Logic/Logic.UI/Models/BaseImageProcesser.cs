@@ -13,7 +13,8 @@ namespace OE.NIK.ImPro.Logic.UI.Models
         /// <param name="sourceImage">The source of the image</param>
         protected BaseImageProcesser(Bitmap sourceImage)
         {
-            
+            ImageWidth = sourceImage.Width;
+            ImageHeight = sourceImage.Height;
         }
 
         /// <summary>
