@@ -6,7 +6,7 @@ namespace OE.NIK.ImPro.Logic.UI.Models
     /// <summary>
     /// Class that calculates histogram values from an image
     /// </summary>
-    public class HistogramCalculator
+    public sealed class HistogramCalculator
     {
         /// <summary>
         /// A bucket which stores [Luminosity, Red, Green, Blue] values
