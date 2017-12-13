@@ -14,7 +14,8 @@ namespace OE.NIK.ImPro.Logic.UI.Models
         /// <param name="sourceImage">The source of the image</param>
         public ColorToGrayscaleConverter(Bitmap sourceImage) : base(sourceImage)
         {
-            
+
+            sourceImage.UnlockBits(SourceImageToBmData);
         }
     }
 }
