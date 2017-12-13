@@ -23,6 +23,7 @@ namespace OE.NIK.ImPro.Logic.UI
                     CreateBitmapFromSourceImage();
                     IsOpened = true;
                     HistogramCommand.RaiseCanExecuteChanged();
+                    GrayscaleCommand.RaiseCanExecuteChanged();
                 }
                 );
 
@@ -32,7 +33,8 @@ namespace OE.NIK.ImPro.Logic.UI
                 );
 
             GrayscaleCommand = new RelayCommand(
-                () => new ColorToGrayscaleConverter(BitmapFromImage)
+                () => new ColorToGrayscaleConverter(BitmapFromImage),
+                () => IsOpened
                 );
         }
 
