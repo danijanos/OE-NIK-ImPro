@@ -1,6 +1,12 @@
-﻿namespace OE.NIK.ImPro.Logic.UI.Models
+﻿using System.Drawing;
+
+namespace OE.NIK.ImPro.Logic.UI.Models
 {
-    class BaseImageProcesser
+    public abstract class BaseImageProcesser
     {
+        protected BaseImageProcesser(Bitmap sourceImage)
+        {
+            
+        }
     }
 }
