@@ -1,4 +1,5 @@
-﻿using System.Drawing;
+﻿using System;
+using System.Drawing;
 
 namespace OE.NIK.ImPro.Logic.UI.Models
 {
@@ -18,9 +19,15 @@ namespace OE.NIK.ImPro.Logic.UI.Models
             sourceImage.UnlockBits(SourceImageToBmData);
         }
 
+        /// <summary>
+        /// Converts the given image to grayscale
+        /// </summary>
         private void ConvertImageToGrayscale()
         {
-            throw new System.NotImplementedException();
+            if (IsImageGrayscale)
+            {
+                throw new NotImplementedException();
+            }
         }
     }
 }
