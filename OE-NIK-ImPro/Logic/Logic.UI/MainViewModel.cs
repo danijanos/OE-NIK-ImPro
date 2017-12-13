@@ -13,21 +13,21 @@ namespace OE.NIK.ImPro.Logic.UI
         /// <summary>
         /// Initializes a new instance of the MainViewModel class.
         /// </summary>
-        public MainViewModel()
-        {
+        public MainViewModel(RelayCommand grayscaleCommand)
+        {            
             OpenPictureCommand = new RelayCommand(
                 () =>
                 {
                     BrowseAndOpenPictureFile();
                     CreateBitmapFromSourceImage();
-                    IsAPicture = true;
+                    IsOpened = true;
                     HistogramCommand.RaiseCanExecuteChanged();
                 }
                 );
 
             HistogramCommand = new RelayCommand(
                 () => MessengerInstance.Send(new HistogramPresenter(BitmapFromImage))                ,
-                () => IsAPicture
+                () => IsOpened
                 );
         }
         
@@ -61,7 +61,7 @@ namespace OE.NIK.ImPro.Logic.UI
         /// <summary>
         /// Indicates that the opened file is a picture or not
         /// </summary>
-        public bool IsAPicture { get; set; }
+        public bool IsOpened { get; set; }
 
         /// <summary>
         /// Command for open picture button
@@ -69,12 +69,12 @@ namespace OE.NIK.ImPro.Logic.UI
         public RelayCommand OpenPictureCommand { get; }
 
         /// <summary>
-        /// Command for create histogram button
+        /// Command for histogram button
         /// </summary>
         public RelayCommand HistogramCommand { get; }
 
         /// <summary>
-        /// Command for create histogram button
+        /// Command for histogram button
         /// </summary>
         public RelayCommand GrayscaleCommand { get; }
     }
