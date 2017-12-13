@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Drawing;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
@@ -32,13 +33,20 @@ namespace OE.NIK.ImPro.Logic.UI
 
             GrayscaleCommand = new RelayCommand(
                 () =>
-                {
-                    new ColorToGrayscaleConverter(BitmapFromImage);
-                    SourceOfTheSelectedImage = @"D:\TEMP\j\jutka-04.jpg";
+                {                    
+                    new ColorToGrayscaleConverter(BitmapFromImage);  
+                    BitmapFromImage.Save(SourceOfTheSelectedImage + ".jpg");
+                    SourceOfTheSelectedImage += ".jpg";
+                    FilesToDeleteWhenQuit.Add(SourceOfTheSelectedImage);
                 },
                 () => IsOpened
                 );
         }
+
+        /// <summary>
+        /// Property which stores file paths which should be deleted when the application closes
+        /// </summary>
+        public static List<string> FilesToDeleteWhenQuit { get; private set; } = new List<string>();
 
         /// <summary>
         /// Stores the selected image as a Bitmap for further processing

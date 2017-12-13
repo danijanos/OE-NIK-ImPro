@@ -7,7 +7,7 @@
         Height="900" Width="1200" 
         WindowStartupLocation="CenterScreen"
         Title="ImPro 1.0" 
-        DataContext="{Binding Main, Source={StaticResource Locator}}"        
+        DataContext="{Binding Main, Source={StaticResource Locator}}" Closed="Window_Closed"        
         >
     <!-- Dummy property binding to use MessageListener as a resource -->
     <Window.IsEnabled>

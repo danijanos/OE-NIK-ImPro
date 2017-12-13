@@ -12,6 +12,9 @@
   See http://www.galasoft.ch/mvvm
 */
 
+using System;
+using System.IO;
+using System.Linq;
 using GalaSoft.MvvmLight.Ioc;
 using Microsoft.Practices.ServiceLocation;
 
@@ -41,6 +44,22 @@ namespace OE.NIK.ImPro.Logic.UI
 
         public static void Cleanup()
         {
+            // TODO: Delete temp files
+            if (MainViewModel.FilesToDeleteWhenQuit.Any())
+            {
+                foreach (string path in MainViewModel.FilesToDeleteWhenQuit)
+                {
+                    // TODO: 
+                    try
+                    {
+                        File.Delete(path);
+                    }
+                    catch (IOException e)
+                    {
+                        Console.WriteLine(e.Message);                        
+                    }
+                }
+            }
             // TODO Clear the ViewModels
         }
     }

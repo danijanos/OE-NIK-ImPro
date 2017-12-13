@@ -1,4 +1,5 @@
 ﻿using System.Windows;
+using OE.NIK.ImPro.Logic.UI;
 
 namespace OE.NIK.ImPro.UI.Desktop
 {
@@ -9,7 +10,13 @@ namespace OE.NIK.ImPro.UI.Desktop
     {
         public MainWindow()
         {
-            InitializeComponent();
+            InitializeComponent();            
+        }
+
+        private void Window_Closed(object sender, System.EventArgs e)
+        {
+            // Application.Current.Shutdown();
+            ViewModelLocator.Cleanup();            
         }
     }
 }

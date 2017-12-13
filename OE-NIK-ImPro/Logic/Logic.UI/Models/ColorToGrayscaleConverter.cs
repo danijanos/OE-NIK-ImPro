@@ -15,7 +15,7 @@ namespace OE.NIK.ImPro.Logic.UI.Models
         /// </summary>
         /// <param name="sourceImage">The source of the image</param>
         public ColorToGrayscaleConverter(Bitmap sourceImage) : base(sourceImage)
-        {
+        {            
             ConvertImageToGrayscale();
             sourceImage.UnlockBits(SourceImageInBmData);
         }
@@ -45,7 +45,7 @@ namespace OE.NIK.ImPro.Logic.UI.Models
                 }
 
                 // Copy changed RGB values back to bitmap
-                Marshal.Copy(rgbValues, 0, ptr, size);
+                Marshal.Copy(rgbValues, 0, ptr, size);                
             }
         }
     }
