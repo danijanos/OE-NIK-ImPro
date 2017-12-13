@@ -3,16 +3,16 @@ using System.Drawing.Imaging;
 
 namespace OE.NIK.ImPro.Logic.UI.Models
 {
+    /// <inheritdoc />
     /// <summary>
     /// Class that calculates histogram values from an image
     /// </summary>
     public sealed class HistogramCalculator : BaseImageProcesser
     {
         /// <summary>
-        /// A bucket which stores [Luminosity, Red, Green, Blue] values
+        /// Initialize a new instance of the <see cref="HistogramCalculator"/> class
         /// </summary>
-        public int[][] LrgbBucket { get; private set; }
-
+        /// <param name="sourceImage">The source of the image</param>
         public HistogramCalculator(Bitmap sourceImage) : base(sourceImage)
         {
             ImageWidth = sourceImage.Width;
@@ -25,6 +25,14 @@ namespace OE.NIK.ImPro.Logic.UI.Models
             sourceImage.UnlockBits(SourceImageToBmData);
         }
 
+        /// <summary>
+        /// A bucket which stores [Luminosity, Red, Green, Blue] values
+        /// </summary>
+        public int[][] LrgbBucket { get; private set; }
+
+        /// <summary>
+        /// An unsafe method to calculate luminosity, red, green and blue values from the image
+        /// </summary>
         private unsafe void FillLrgbBucket()
         {
             // Initialize the bucket
