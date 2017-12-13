@@ -52,7 +52,7 @@ namespace OE.NIK.ImPro.Logic.UI.Models
         {
             SourceImageInBmData = sourceImage.LockBits(
                 new Rectangle(0, 0, ImageWidth, ImageHeight),
-                ImageLockMode.ReadOnly,
+                ImageLockMode.ReadWrite,
                 (IsImageGrayscale ? PixelFormat.Format8bppIndexed : PixelFormat.Format24bppRgb)
             );
         }
