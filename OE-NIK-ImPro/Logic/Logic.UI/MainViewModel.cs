@@ -38,7 +38,20 @@ namespace OE.NIK.ImPro.Logic.UI
                 );
         }
 
+        /// <summary>
+        /// Stores the selected image as a Bitmap for further processing
+        /// </summary>
         public Bitmap BitmapFromImage { get; set; }
+
+        /// <summary>
+        /// Gets or sets the URI source of the image
+        /// </summary>
+        public string SourceOfTheSelectedImage { get; set; }
+
+        /// <summary>
+        /// Indicates that the image file was opened or not
+        /// </summary>
+        public bool IsOpened { get; set; }
 
         private void CreateBitmapFromSourceImage()
         {
@@ -59,16 +72,6 @@ namespace OE.NIK.ImPro.Logic.UI
                 SourceOfTheSelectedImage = fileDialog.FileName;
             }
         }
-
-        /// <summary>
-        /// Gets or sets the source of the image
-        /// </summary>
-        public string SourceOfTheSelectedImage { get; set; }
-
-        /// <summary>
-        /// Indicates that the opened file is a picture or not
-        /// </summary>
-        public bool IsOpened { get; set; }
 
         /// <summary>
         /// Command for open picture button
