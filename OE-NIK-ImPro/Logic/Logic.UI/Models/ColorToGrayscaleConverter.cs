@@ -46,7 +46,6 @@ namespace OE.NIK.ImPro.Logic.UI.Models
 
                 // Copy changed RGB values back to bitmap
                 Marshal.Copy(rgbValues, 0, ptr, size);
-
             }
         }
     }
