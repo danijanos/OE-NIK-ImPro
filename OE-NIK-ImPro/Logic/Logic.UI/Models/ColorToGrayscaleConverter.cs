@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Drawing;
+using System.Runtime.InteropServices;
 
 namespace OE.NIK.ImPro.Logic.UI.Models
 {
@@ -24,7 +25,7 @@ namespace OE.NIK.ImPro.Logic.UI.Models
         /// </summary>
         private void ConvertImageToGrayscale()
         {
-            if (IsImageGrayscale)
+            if (IsImageGrayscale == false) // Color image
             {
                 // Scan for the first line
                 IntPtr ptr = SourceImageInBmData.Scan0;
@@ -32,6 +33,9 @@ namespace OE.NIK.ImPro.Logic.UI.Models
                 // Declare an array in which RGB values will be stored
                 int size = Math.Abs(SourceImageInBmData.Stride) * ImageHeight;
                 byte[] rgbValues = new byte[size];
+
+                // Copy RGB values to the array
+                Marshal.Copy(ptr, rgbValues, 0, size);
             }
         }
     }
