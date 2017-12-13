@@ -50,7 +50,7 @@ namespace OE.NIK.ImPro.Logic.UI
             var fileDialog = new OpenFileDialog
             {
                 Multiselect = false,
-                Filter = "Image Files(*.BMP;*.JPG;*.GIF)|*.BMP;*.JPG;*.GIF|All files (*.*)|*.*",
+                Filter = "Image Files(*.BMP;*.JPG;*.GIF)|*.BMP;*.JPG;*.GIF",
                 DefaultExt = ".JPG"
             };
 
