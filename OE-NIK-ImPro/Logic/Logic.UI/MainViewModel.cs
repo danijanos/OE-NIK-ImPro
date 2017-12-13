@@ -20,8 +20,6 @@ namespace OE.NIK.ImPro.Logic.UI
                 () =>
                 {
                     BrowseAndOpenPictureFile();
-                    CreateBitmapFromSourceImage();
-                    IsOpened = true;
                     HistogramCommand.RaiseCanExecuteChanged();
                     GrayscaleCommand.RaiseCanExecuteChanged();
                 }
@@ -33,7 +31,11 @@ namespace OE.NIK.ImPro.Logic.UI
                 );
 
             GrayscaleCommand = new RelayCommand(
-                () => new ColorToGrayscaleConverter(BitmapFromImage),
+                () =>
+                {
+                    new ColorToGrayscaleConverter(BitmapFromImage);
+                    SourceOfTheSelectedImage = @"D:\TEMP\j\jutka-04.jpg";
+                },
                 () => IsOpened
                 );
         }
@@ -70,6 +72,8 @@ namespace OE.NIK.ImPro.Logic.UI
             if (fileDialog.ShowDialog() == true)
             {
                 SourceOfTheSelectedImage = fileDialog.FileName;
+                CreateBitmapFromSourceImage();
+                IsOpened = true;
             }
         }
 
