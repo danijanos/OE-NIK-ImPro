@@ -14,7 +14,7 @@ namespace OE.NIK.ImPro.Logic.UI
         /// <summary>
         /// Initializes a new instance of the MainViewModel class.
         /// </summary>
-        public MainViewModel(RelayCommand grayscaleCommand)
+        public MainViewModel()
         {
             OpenPictureCommand = new RelayCommand(
                 () =>
@@ -32,7 +32,7 @@ namespace OE.NIK.ImPro.Logic.UI
                 );
 
             GrayscaleCommand = new RelayCommand(
-                () => new ColorToGrayscaleConverter(BitmapFromImage)                
+                () => new ColorToGrayscaleConverter(BitmapFromImage)
                 );
         }
 
