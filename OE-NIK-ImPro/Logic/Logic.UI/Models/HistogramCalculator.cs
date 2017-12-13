@@ -15,7 +15,7 @@ namespace OE.NIK.ImPro.Logic.UI.Models
         public HistogramCalculator(Bitmap sourceImage) : base(sourceImage)
         {
             FillLrgbBucket();
-            sourceImage.UnlockBits(SourceImageToBmData);
+            sourceImage.UnlockBits(SourceImageInBmData);
         }
 
         /// <summary>
@@ -32,9 +32,9 @@ namespace OE.NIK.ImPro.Logic.UI.Models
             LrgbBucket = new[] { new int[256], new int[256], new int[256], new int[256] };
 
             // Initialize pointers
-            byte* pointer = (byte*)SourceImageToBmData.Scan0.ToPointer();
+            byte* pointer = (byte*)SourceImageInBmData.Scan0.ToPointer();
             int pointerIncrementation = IsImageGrayscale ? 1 : 3;
-            int remain = SourceImageToBmData.Stride - ImageWidth * pointerIncrementation;
+            int remain = SourceImageInBmData.Stride - ImageWidth * pointerIncrementation;
 
             // walk through the image pixel by pixel
             for (int i = 0; i < ImageHeight; ++i, pointer += remain)

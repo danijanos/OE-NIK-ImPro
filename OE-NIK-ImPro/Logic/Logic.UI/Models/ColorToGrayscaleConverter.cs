@@ -16,7 +16,7 @@ namespace OE.NIK.ImPro.Logic.UI.Models
         public ColorToGrayscaleConverter(Bitmap sourceImage) : base(sourceImage)
         {
             ConvertImageToGrayscale();
-            sourceImage.UnlockBits(SourceImageToBmData);
+            sourceImage.UnlockBits(SourceImageInBmData);
         }
 
         /// <summary>
@@ -26,7 +26,8 @@ namespace OE.NIK.ImPro.Logic.UI.Models
         {
             if (IsImageGrayscale)
             {
-                throw new NotImplementedException();
+                //Scan for the first line
+                IntPtr ptr = SourceImageInBmData.Scan0;
             }
         }
     }
