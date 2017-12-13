@@ -1,68 +1,40 @@
 ﻿using System.Drawing;
-using System.Drawing.Imaging;
 
 namespace OE.NIK.ImPro.Logic.UI.Models
 {
+    /// <inheritdoc />
     /// <summary>
     /// Class that calculates histogram values from an image
     /// </summary>
-    public class HistogramCalculator
+    public sealed class HistogramCalculator : BaseImageProcesser
     {
+        /// <summary>
+        /// Initialize a new instance of the <see cref="HistogramCalculator"/> class
+        /// </summary>
+        /// <param name="sourceImage">The source of the image</param>
+        public HistogramCalculator(Bitmap sourceImage) : base(sourceImage)
+        {
+            FillLrgbBucket();
+            sourceImage.UnlockBits(SourceImageInBmData);
+        }
+
         /// <summary>
         /// A bucket which stores [Luminosity, Red, Green, Blue] values
         /// </summary>
         public int[][] LrgbBucket { get; private set; }
 
         /// <summary>
-        /// Gets the width of the source image
+        /// An unsafe method to calculate luminosity, red, green and blue values from the image
         /// </summary>
-        public int ImageWidth { get; private set; }
-
-        /// <summary>
-        /// Gets the heigth of the source image
-        /// </summary>
-        public int ImageHeight { get; private set; }
-
-        /// <summary>
-        /// Determines that the source image is weather grayscale or not
-        /// </summary>
-        public bool IsImageGrayscale { get; private set; }
-
-        /// <summary>
-        /// Stores the source image as BitmapData
-        /// </summary>
-        public BitmapData SourceImageToBmData { get; private set; }
-
-        public HistogramCalculator(Bitmap sourceImage)
-        {
-            ImageWidth = sourceImage.Width;
-            ImageHeight = sourceImage.Height;
-            IsImageGrayscale = (sourceImage.PixelFormat == PixelFormat.Format8bppIndexed);
-
-            // lock bitmap data
-            LockSourceImageBits(sourceImage);
-            FillLrgbBucket();
-            sourceImage.UnlockBits(SourceImageToBmData);
-        }
-
-        private void LockSourceImageBits(Bitmap sourceImage)
-        {
-            SourceImageToBmData = sourceImage.LockBits(
-                new Rectangle(0, 0, ImageWidth, ImageHeight),
-                ImageLockMode.ReadOnly,
-                (IsImageGrayscale ? PixelFormat.Format8bppIndexed : PixelFormat.Format24bppRgb)
-                );
-        }
-
         private unsafe void FillLrgbBucket()
         {
             // Initialize the bucket
             LrgbBucket = new[] { new int[256], new int[256], new int[256], new int[256] };
 
             // Initialize pointers
-            byte* pointer = (byte*)SourceImageToBmData.Scan0.ToPointer();
+            byte* pointer = (byte*)SourceImageInBmData.Scan0.ToPointer();
             int pointerIncrementation = IsImageGrayscale ? 1 : 3;
-            int remain = SourceImageToBmData.Stride - ImageWidth * pointerIncrementation;
+            int remain = SourceImageInBmData.Stride - ImageWidth * pointerIncrementation;
 
             // walk through the image pixel by pixel
             for (int i = 0; i < ImageHeight; ++i, pointer += remain)
