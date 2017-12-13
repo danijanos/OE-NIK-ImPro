@@ -7,7 +7,7 @@
         Height="900" Width="1200" 
         WindowStartupLocation="CenterScreen"
         Title="ImPro 1.0" 
-        DataContext="{Binding Main, Source={StaticResource Locator}}"        
+        DataContext="{Binding Main, Source={StaticResource Locator}}" Closed="Window_Closed"        
         >
     <!-- Dummy property binding to use MessageListener as a resource -->
     <Window.IsEnabled>
@@ -66,7 +66,7 @@
             <Grid Grid.Column="1" Background="#FFFBF7F7">
                 <StackPanel Margin="10">
                     <Button Content="Histogram" Padding="20" Margin="0 5" Command="{Binding HistogramCommand}"/>
-                    <Button Content="Grayscale" Padding="20" Margin="0 5"/>
+                    <Button Content="Grayscale" Padding="20" Margin="0 5" Command="{Binding GrayscaleCommand}"/>
                     <Button Content="Blur" Padding="20" Margin="0 5"/>
                 </StackPanel>
             </Grid>

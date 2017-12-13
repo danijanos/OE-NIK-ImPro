@@ -1,7 +1,9 @@
+using System.Collections.Generic;
 using System.Drawing;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
 using Microsoft.Win32;
+using OE.NIK.ImPro.Logic.UI.Models;
 
 namespace OE.NIK.ImPro.Logic.UI
 {
@@ -19,19 +21,47 @@ namespace OE.NIK.ImPro.Logic.UI
                 () =>
                 {
                     BrowseAndOpenPictureFile();
-                    CreateBitmapFromSourceImage();
-                    IsAPicture = true;
                     HistogramCommand.RaiseCanExecuteChanged();
+                    GrayscaleCommand.RaiseCanExecuteChanged();
                 }
                 );
 
             HistogramCommand = new RelayCommand(
-                () => MessengerInstance.Send(new HistogramPresenter(BitmapFromImage))                ,
-                () => IsAPicture
+                () => MessengerInstance.Send(new HistogramPresenter(BitmapFromImage)),
+                () => IsOpened
+                );
+
+            GrayscaleCommand = new RelayCommand(
+                () =>
+                {                    
+                    new ColorToGrayscaleConverter(BitmapFromImage);  
+                    BitmapFromImage.Save(SourceOfTheSelectedImage + ".jpg");
+                    SourceOfTheSelectedImage += ".jpg";
+                    FilesToDeleteWhenQuit.Add(SourceOfTheSelectedImage);
+                },
+                () => IsOpened
                 );
         }
-        
+
+        /// <summary>
+        /// Property which stores file paths which should be deleted when the application closes
+        /// </summary>
+        public static List<string> FilesToDeleteWhenQuit { get; private set; } = new List<string>();
+
+        /// <summary>
+        /// Stores the selected image as a Bitmap for further processing
+        /// </summary>
         public Bitmap BitmapFromImage { get; set; }
+
+        /// <summary>
+        /// Gets or sets the URI source of the image
+        /// </summary>
+        public string SourceOfTheSelectedImage { get; set; }
+
+        /// <summary>
+        /// Indicates that the image file was opened or not
+        /// </summary>
+        public bool IsOpened { get; set; }
 
         private void CreateBitmapFromSourceImage()
         {
@@ -43,25 +73,17 @@ namespace OE.NIK.ImPro.Logic.UI
             var fileDialog = new OpenFileDialog
             {
                 Multiselect = false,
-                Filter = "Image Files(*.BMP;*.JPG;*.GIF)|*.BMP;*.JPG;*.GIF|All files (*.*)|*.*",
+                Filter = "Image Files(*.BMP;*.JPG;*.GIF)|*.BMP;*.JPG;*.GIF",
                 DefaultExt = ".JPG"
             };
 
             if (fileDialog.ShowDialog() == true)
-            {                   
-                SourceOfTheSelectedImage = fileDialog.FileName;                
+            {
+                SourceOfTheSelectedImage = fileDialog.FileName;
+                CreateBitmapFromSourceImage();
+                IsOpened = true;
             }
         }
-
-        /// <summary>
-        /// Gets or sets the source of the image
-        /// </summary>
-        public string SourceOfTheSelectedImage {get; set;}
-
-        /// <summary>
-        /// Indicates that the opened file is a picture or not
-        /// </summary>
-        public bool IsAPicture { get; set; }
 
         /// <summary>
         /// Command for open picture button
@@ -69,9 +91,13 @@ namespace OE.NIK.ImPro.Logic.UI
         public RelayCommand OpenPictureCommand { get; }
 
         /// <summary>
-        /// Command for create histogram button
+        /// Command for histogram button
         /// </summary>
         public RelayCommand HistogramCommand { get; }
 
+        /// <summary>
+        /// Command for histogram button
+        /// </summary>
+        public RelayCommand GrayscaleCommand { get; }
     }
 }
