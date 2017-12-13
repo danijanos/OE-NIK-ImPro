@@ -2,6 +2,7 @@ using System.Drawing;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
 using Microsoft.Win32;
+using OE.NIK.ImPro.Logic.UI.Models;
 
 namespace OE.NIK.ImPro.Logic.UI
 {
@@ -14,7 +15,7 @@ namespace OE.NIK.ImPro.Logic.UI
         /// Initializes a new instance of the MainViewModel class.
         /// </summary>
         public MainViewModel(RelayCommand grayscaleCommand)
-        {            
+        {
             OpenPictureCommand = new RelayCommand(
                 () =>
                 {
@@ -26,11 +27,15 @@ namespace OE.NIK.ImPro.Logic.UI
                 );
 
             HistogramCommand = new RelayCommand(
-                () => MessengerInstance.Send(new HistogramPresenter(BitmapFromImage))                ,
+                () => MessengerInstance.Send(new HistogramPresenter(BitmapFromImage)),
                 () => IsOpened
                 );
+
+            GrayscaleCommand = new RelayCommand(
+                () => new ColorToGrayscaleConverter(BitmapFromImage)                
+                );
         }
-        
+
         public Bitmap BitmapFromImage { get; set; }
 
         private void CreateBitmapFromSourceImage()
@@ -48,15 +53,15 @@ namespace OE.NIK.ImPro.Logic.UI
             };
 
             if (fileDialog.ShowDialog() == true)
-            {                   
-                SourceOfTheSelectedImage = fileDialog.FileName;                
+            {
+                SourceOfTheSelectedImage = fileDialog.FileName;
             }
         }
 
         /// <summary>
         /// Gets or sets the source of the image
         /// </summary>
-        public string SourceOfTheSelectedImage {get; set;}
+        public string SourceOfTheSelectedImage { get; set; }
 
         /// <summary>
         /// Indicates that the opened file is a picture or not
