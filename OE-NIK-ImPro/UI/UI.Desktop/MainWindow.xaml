@@ -67,7 +67,7 @@
                 <StackPanel Margin="10">
                     <Button Content="Histogram" Padding="20" Margin="0 5" Command="{Binding HistogramCommand}"/>
                     <Button Content="Grayscale" Padding="20" Margin="0 5" Command="{Binding GrayscaleCommand}"/>
-                    <Button Content="Blur" Padding="20" Margin="0 5"/>
+                    <Button Content="Invert" Padding="20" Margin="0 5" Command="{Binding InvertCommand}"/>
                 </StackPanel>
             </Grid>
 
