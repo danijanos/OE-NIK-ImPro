@@ -13,16 +13,14 @@ namespace OE.NIK.ImPro.Logic.UI.Models
             sourceImage.UnlockBits(SourceImageInBmData);
         }
 
-
         private void BlurImage()
         {
-            SetMatrixToGaussian();
-            // base.
+            SetConvolutionMatrixToGaussian();
+            base.ConvolutionOverTheImage(ConvolutionMatrix);
         }
 
-        private void SetMatrixToGaussian()
-        {
-            ConvolutionMatrix = new ConvolutionMatrix();
+        private void SetConvolutionMatrixToGaussian()
+        {            
             ConvolutionMatrix.SetAllValues(1);
             ConvolutionMatrix.Pixel = 4;
             ConvolutionMatrix.TopMid = ConvolutionMatrix.MidRight = ConvolutionMatrix.BottomMid = ConvolutionMatrix.MidLeft = 2;

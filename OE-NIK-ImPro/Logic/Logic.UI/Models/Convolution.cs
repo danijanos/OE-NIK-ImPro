@@ -9,7 +9,12 @@ namespace OE.NIK.ImPro.Logic.UI.Models
 
         }
 
+        public ConvolutionMatrix ConvolutionMatrix { get; internal set; } =  new ConvolutionMatrix();
 
-        public ConvolutionMatrix ConvolutionMatrix { get; internal set; }
+        protected void ConvolutionOverTheImage(ConvolutionMatrix convolutionMatrix)
+        {
+            
+
+        }
     }
 }
