@@ -14,7 +14,13 @@ namespace OE.NIK.ImPro.Logic.UI.Models
         /// <param name="sourceImage">The source of the image</param>
         public Invert(Bitmap sourceImage) : base(sourceImage)
         {
+            InvertImage();
+            sourceImage.UnlockBits(SourceImageInBmData);
+        }
 
+        private void InvertImage()
+        {
+            throw new System.NotImplementedException();
         }
     }
 }
