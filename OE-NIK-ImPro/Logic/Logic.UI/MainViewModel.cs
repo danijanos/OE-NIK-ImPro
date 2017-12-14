@@ -130,5 +130,10 @@ namespace OE.NIK.ImPro.Logic.UI
         /// Command for invert button
         /// </summary>
         public RelayCommand InvertCommand { get; set; }
+
+        /// <summary>
+        /// Command for blur button
+        /// </summary>
+        public RelayCommand BlurCommand { get; set; }
     }
 }
