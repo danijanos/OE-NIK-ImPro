@@ -34,9 +34,7 @@ namespace OE.NIK.ImPro.Logic.UI
                 () =>
                 {
                     new ColorToGrayscaleConverter(BitmapFromImage);
-                    BitmapFromImage.Save(SourceOfTheSelectedImage + ".jpg");
-                    SourceOfTheSelectedImage += ".jpg";
-                    FilesToDeleteWhenQuit.Add(SourceOfTheSelectedImage);
+                    RedrawImageSource();
                 },
                 () => IsOpened
                 );
@@ -44,9 +42,7 @@ namespace OE.NIK.ImPro.Logic.UI
                 () =>
                 {
                     new Invert(BitmapFromImage);
-                    BitmapFromImage.Save(SourceOfTheSelectedImage + ".jpg");
-                    SourceOfTheSelectedImage += ".jpg";
-                    FilesToDeleteWhenQuit.Add(SourceOfTheSelectedImage);
+                    RedrawImageSource();
                 },
                 () => IsOpened
                 );
@@ -102,6 +98,17 @@ namespace OE.NIK.ImPro.Logic.UI
             HistogramCommand.RaiseCanExecuteChanged();
             GrayscaleCommand.RaiseCanExecuteChanged();
             InvertCommand.RaiseCanExecuteChanged();
+        }
+
+        /// <summary>
+        /// Redraws Image element's source property
+        /// TODO: need to fix this and find a better solution!
+        /// </summary>
+        private void RedrawImageSource()
+        {
+            BitmapFromImage.Save(SourceOfTheSelectedImage + ".jpg");
+            SourceOfTheSelectedImage += ".jpg";
+            FilesToDeleteWhenQuit.Add(SourceOfTheSelectedImage);
         }
 
         /// <summary>
