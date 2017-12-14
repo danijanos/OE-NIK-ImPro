@@ -10,6 +10,7 @@ namespace OE.NIK.ImPro.Logic.UI.Models
         public Blur(Bitmap sourceImage) : base(sourceImage)
         {
             BlurImage();
+            sourceImage.UnlockBits(SourceImageInBmData);
         }
 
 
