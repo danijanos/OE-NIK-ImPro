@@ -90,6 +90,7 @@
     <Compile Include="Models\ColorToGrayscaleConverter.cs" />
     <Compile Include="Models\HistogramCalculator.cs" />
     <Compile Include="Models\IImageProcesser.cs" />
+    <Compile Include="Models\Invert.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModelLocator.cs" />
   </ItemGroup>

@@ -21,8 +21,7 @@ namespace OE.NIK.ImPro.Logic.UI
                 () =>
                 {
                     BrowseAndOpenPictureFile();
-                    HistogramCommand.RaiseCanExecuteChanged();
-                    GrayscaleCommand.RaiseCanExecuteChanged();
+                    EnableButtons();
                 }
                 );
 
@@ -33,11 +32,17 @@ namespace OE.NIK.ImPro.Logic.UI
 
             GrayscaleCommand = new RelayCommand(
                 () =>
-                {                    
-                    new ColorToGrayscaleConverter(BitmapFromImage);  
-                    BitmapFromImage.Save(SourceOfTheSelectedImage + ".jpg");
-                    SourceOfTheSelectedImage += ".jpg";
-                    FilesToDeleteWhenQuit.Add(SourceOfTheSelectedImage);
+                {
+                    new ColorToGrayscaleConverter(BitmapFromImage);
+                    RedrawImageSource();
+                },
+                () => IsOpened
+                );
+            InvertCommand = new RelayCommand(
+                () =>
+                {
+                    new Invert(BitmapFromImage);
+                    RedrawImageSource();
                 },
                 () => IsOpened
                 );
@@ -86,6 +91,27 @@ namespace OE.NIK.ImPro.Logic.UI
         }
 
         /// <summary>
+        /// Method that enable buttons in MainWindow
+        /// </summary>
+        private void EnableButtons()
+        {
+            HistogramCommand.RaiseCanExecuteChanged();
+            GrayscaleCommand.RaiseCanExecuteChanged();
+            InvertCommand.RaiseCanExecuteChanged();
+        }
+
+        /// <summary>
+        /// Redraws Image element's source property
+        /// TODO: need to fix this and find a better solution!
+        /// </summary>
+        private void RedrawImageSource()
+        {
+            BitmapFromImage.Save(SourceOfTheSelectedImage + ".jpg");
+            SourceOfTheSelectedImage += ".jpg";
+            FilesToDeleteWhenQuit.Add(SourceOfTheSelectedImage);
+        }
+
+        /// <summary>
         /// Command for open picture button
         /// </summary>
         public RelayCommand OpenPictureCommand { get; }
@@ -99,5 +125,10 @@ namespace OE.NIK.ImPro.Logic.UI
         /// Command for histogram button
         /// </summary>
         public RelayCommand GrayscaleCommand { get; }
+
+        /// <summary>
+        /// Command for invert button
+        /// </summary>
+        public RelayCommand InvertCommand { get; set; }
     }
 }

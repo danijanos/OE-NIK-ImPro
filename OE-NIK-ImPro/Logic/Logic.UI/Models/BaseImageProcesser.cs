@@ -1,4 +1,5 @@
-﻿using System.Drawing;
+﻿using System;
+using System.Drawing;
 using System.Drawing.Imaging;
 
 namespace OE.NIK.ImPro.Logic.UI.Models
@@ -20,6 +21,9 @@ namespace OE.NIK.ImPro.Logic.UI.Models
 
             // lock bitmap data for processing
             LockSourceImageBits(sourceImage);
+            ImageStride = SourceImageInBmData.Stride;
+            Scan0IntPtr = SourceImageInBmData.Scan0;
+
             // Todo: call the function that consumes and process the image
             // TODO: every child instance should unlock bits => sourceImage.UnlockBits(SourceImageInBmData); !!!
         }
@@ -45,6 +49,16 @@ namespace OE.NIK.ImPro.Logic.UI.Models
         public BitmapData SourceImageInBmData { get; internal set; }
 
         /// <summary>
+        /// Gets the stride(scan) width of the Bitmap object.        
+        /// </summary>
+        public int ImageStride { get; private set; }
+
+        /// <summary>
+        /// Gets the address of the first pixel data in the bitmap
+        /// </summary>
+        public IntPtr Scan0IntPtr { get; private set; }
+
+        /// <summary>
         /// Locks the bits of the given bitmap image and add it to <see cref="SourceImageInBmData"/> property for further processing
         /// </summary>
         /// <param name="sourceImage">The source of the image as a Bitmap</param>
@@ -57,6 +71,6 @@ namespace OE.NIK.ImPro.Logic.UI.Models
             );
         }
 
-        // TODO: perhaps need to create a ImageLockMode.ReadWrite version?
+        // TODO: perhaps need to create a ImageLockMode.Read version?
     }
 }
