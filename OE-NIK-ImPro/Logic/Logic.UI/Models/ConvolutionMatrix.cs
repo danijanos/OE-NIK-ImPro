@@ -16,10 +16,10 @@
         public int Offset = 0;
 
         /// <summary>
-        /// Sets the matrix with initial values
+        /// Sets the matrix values with the given parameter
         /// </summary>
-        /// <param name="value">Value for initilaize the matrix</param>
-        public void SetValues(int value)
+        /// <param name="value">Value for matrix values</param>
+        public void SetAllValues(int value)
         {
             TopLeft = TopMid = TopRight = MidLeft = Pixel = MidRight =
                 BottomLeft = BottomMid = BottomRight = value;

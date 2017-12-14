@@ -12,14 +12,20 @@ namespace OE.NIK.ImPro.Logic.UI.Models
             BlurImage();
         }
 
+        public ConvolutionMatrix ConvolutionMatrix { get; private set; }
+
         private void BlurImage()
         {
-            SetMatrix();
+            SetMatrixToGaussian();
         }
 
-        private void SetMatrix()
+        private void SetMatrixToGaussian()
         {
-            throw new System.NotImplementedException();
+            ConvolutionMatrix = new ConvolutionMatrix();
+            ConvolutionMatrix.SetAllValues(1);
+            ConvolutionMatrix.Pixel = 4;
+            ConvolutionMatrix.TopMid = ConvolutionMatrix.MidRight = ConvolutionMatrix.BottomMid = ConvolutionMatrix.MidLeft = 2;
+            ConvolutionMatrix.Factor = 16;
         }
     }
 }
