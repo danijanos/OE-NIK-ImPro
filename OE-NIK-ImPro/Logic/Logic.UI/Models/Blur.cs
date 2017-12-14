@@ -14,6 +14,11 @@ namespace OE.NIK.ImPro.Logic.UI.Models
 
         private void BlurImage()
         {
+            SetMatrix();
+        }
+
+        private void SetMatrix()
+        {
             throw new System.NotImplementedException();
         }
     }
