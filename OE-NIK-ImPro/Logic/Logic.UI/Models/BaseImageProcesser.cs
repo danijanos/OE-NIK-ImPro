@@ -45,6 +45,11 @@ namespace OE.NIK.ImPro.Logic.UI.Models
         public BitmapData SourceImageInBmData { get; internal set; }
 
         /// <summary>
+        /// Gets the stride of an image
+        /// </summary>
+        public int ImageStride { get; private set; }
+
+        /// <summary>
         /// Locks the bits of the given bitmap image and add it to <see cref="SourceImageInBmData"/> property for further processing
         /// </summary>
         /// <param name="sourceImage">The source of the image as a Bitmap</param>

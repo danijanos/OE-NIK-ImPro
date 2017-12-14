@@ -18,6 +18,9 @@ namespace OE.NIK.ImPro.Logic.UI.Models
             sourceImage.UnlockBits(SourceImageInBmData);
         }
 
+        /// <summary>
+        /// Imverts a given image
+        /// </summary>
         private void InvertImage()
         {
             throw new System.NotImplementedException();
