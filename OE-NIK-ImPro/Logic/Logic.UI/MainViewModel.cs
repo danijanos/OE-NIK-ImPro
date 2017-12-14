@@ -38,6 +38,7 @@ namespace OE.NIK.ImPro.Logic.UI
                 },
                 () => IsOpened
                 );
+
             InvertCommand = new RelayCommand(
                 () =>
                 {
@@ -46,6 +47,15 @@ namespace OE.NIK.ImPro.Logic.UI
                 },
                 () => IsOpened
                 );
+
+            BlurCommand = new RelayCommand(
+                () =>
+                {
+                    new Blur(BitmapFromImage);
+                    RedrawImageSource();
+                },
+                () => IsOpened
+            );
         }
 
         /// <summary>
@@ -98,6 +108,7 @@ namespace OE.NIK.ImPro.Logic.UI
             HistogramCommand.RaiseCanExecuteChanged();
             GrayscaleCommand.RaiseCanExecuteChanged();
             InvertCommand.RaiseCanExecuteChanged();
+            BlurCommand.RaiseCanExecuteChanged();
         }
 
         /// <summary>
