@@ -27,15 +27,12 @@ namespace OE.NIK.ImPro.Logic.UI.Models
         {
             if (IsImageGrayscale == false) // Color image
             {
-                // Scan for the first line
-                IntPtr ptr = SourceImageInBmData.Scan0;
-
                 // Declare an array in which RGB values will be stored
                 int size = Math.Abs(ImageStride) * ImageHeight;
                 byte[] rgbValues = new byte[size];
 
                 // Copy RGB values to the array
-                Marshal.Copy(ptr, rgbValues, 0, size);
+                Marshal.Copy(Scan0IntPtr, rgbValues, 0, size);
 
                 for (int i = 0; i < size; i += 3)
                 {
@@ -45,7 +42,7 @@ namespace OE.NIK.ImPro.Logic.UI.Models
                 }
 
                 // Copy changed RGB values back to bitmap
-                Marshal.Copy(rgbValues, 0, ptr, size);                
+                Marshal.Copy(rgbValues, 0, Scan0IntPtr, size);                
             }
         }
     }
