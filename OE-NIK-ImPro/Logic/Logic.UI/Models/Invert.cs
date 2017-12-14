@@ -15,7 +15,7 @@ namespace OE.NIK.ImPro.Logic.UI.Models
         public Invert(Bitmap sourceImage) : base(sourceImage)
         {
             InvertImage();
-            sourceImage.UnlockBits(SourceImageInBmData);
+            sourceImage.UnlockBits(BitmapDataFromSource);
         }
 
         /// <summary>

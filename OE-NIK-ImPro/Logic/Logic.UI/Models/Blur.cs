@@ -10,13 +10,13 @@ namespace OE.NIK.ImPro.Logic.UI.Models
         public Blur(Bitmap sourceImage) : base(sourceImage)
         {
             BlurImage();
-            sourceImage.UnlockBits(SourceImageInBmData);
+            sourceImage.UnlockBits(BitmapDataFromSource);
         }
 
         private void BlurImage()
         {
             SetConvolutionMatrixToGaussian();
-            base.ConvolutionOverTheImage(ConvolutionMatrix);
+            ConvolutionOverTheImage();
         }
 
         private void SetConvolutionMatrixToGaussian()
