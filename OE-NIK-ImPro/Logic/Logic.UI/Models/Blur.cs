@@ -12,7 +12,6 @@ namespace OE.NIK.ImPro.Logic.UI.Models
             BlurImage();
         }
 
-        public ConvolutionMatrix ConvolutionMatrix { get; private set; }
 
         private void BlurImage()
         {

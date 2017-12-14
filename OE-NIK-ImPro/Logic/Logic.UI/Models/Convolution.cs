@@ -8,5 +8,8 @@ namespace OE.NIK.ImPro.Logic.UI.Models
         {
 
         }
+
+
+        public ConvolutionMatrix ConvolutionMatrix { get; internal set; }
     }
 }
