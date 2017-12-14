@@ -23,7 +23,21 @@ namespace OE.NIK.ImPro.Logic.UI.Models
         /// </summary>
         private void InvertImage()
         {
-            throw new System.NotImplementedException();
+            unsafe
+            {
+                byte* p = (byte*)(void*)Scan0IntPtr;
+                int nOffset = ImageStride - ImageWidth * 3;
+                int nWidth = ImageWidth * 3;
+                for (int y = 0; y < ImageHeight; ++y)
+                {
+                    for (int x = 0; x < nWidth; ++x)
+                    {
+                        p[0] = (byte)(255 - p[0]);
+                        ++p;
+                    }
+                    p += nOffset;
+                }
+            }
         }
     }
 }
