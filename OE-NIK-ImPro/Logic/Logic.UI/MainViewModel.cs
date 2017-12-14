@@ -21,8 +21,7 @@ namespace OE.NIK.ImPro.Logic.UI
                 () =>
                 {
                     BrowseAndOpenPictureFile();
-                    HistogramCommand.RaiseCanExecuteChanged();
-                    GrayscaleCommand.RaiseCanExecuteChanged();
+                    EnableButtons();
                 }
                 );
 
@@ -35,6 +34,16 @@ namespace OE.NIK.ImPro.Logic.UI
                 () =>
                 {
                     new ColorToGrayscaleConverter(BitmapFromImage);
+                    BitmapFromImage.Save(SourceOfTheSelectedImage + ".jpg");
+                    SourceOfTheSelectedImage += ".jpg";
+                    FilesToDeleteWhenQuit.Add(SourceOfTheSelectedImage);
+                },
+                () => IsOpened
+                );
+            InvertCommand = new RelayCommand(
+                () =>
+                {
+                    new Invert(BitmapFromImage);
                     BitmapFromImage.Save(SourceOfTheSelectedImage + ".jpg");
                     SourceOfTheSelectedImage += ".jpg";
                     FilesToDeleteWhenQuit.Add(SourceOfTheSelectedImage);
@@ -83,6 +92,16 @@ namespace OE.NIK.ImPro.Logic.UI
                 CreateBitmapFromSourceImage();
                 IsOpened = true;
             }
+        }
+
+        /// <summary>
+        /// Method that enable buttons in MainWindow
+        /// </summary>
+        private void EnableButtons()
+        {
+            HistogramCommand.RaiseCanExecuteChanged();
+            GrayscaleCommand.RaiseCanExecuteChanged();
+            InvertCommand.RaiseCanExecuteChanged();
         }
 
         /// <summary>
