@@ -31,7 +31,7 @@ namespace OE.NIK.ImPro.Logic.UI.Models
                 IntPtr ptr = SourceImageInBmData.Scan0;
 
                 // Declare an array in which RGB values will be stored
-                int size = Math.Abs(SourceImageInBmData.Stride) * ImageHeight;
+                int size = Math.Abs(ImageStride) * ImageHeight;
                 byte[] rgbValues = new byte[size];
 
                 // Copy RGB values to the array

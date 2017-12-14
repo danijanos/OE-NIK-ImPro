@@ -20,6 +20,7 @@ namespace OE.NIK.ImPro.Logic.UI.Models
 
             // lock bitmap data for processing
             LockSourceImageBits(sourceImage);
+            ImageStride = SourceImageInBmData.Stride;
             // Todo: call the function that consumes and process the image
             // TODO: every child instance should unlock bits => sourceImage.UnlockBits(SourceImageInBmData); !!!
         }
