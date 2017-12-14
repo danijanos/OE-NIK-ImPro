@@ -1,19 +1,30 @@
 ﻿namespace OE.NIK.ImPro.Logic.UI.Models
 {
     /// <summary>
-    /// Class which describe a convoluton matrix for image processing
+    /// Class which describe a 3×3 matrix with integer values
     /// </summary>
     public class ConvolutionMatrix
     {
         /// <summary>
-        /// Abstarction of an identity matrix
+        /// Abstarction of a matrix 3×3 matrix parts
         /// </summary>
-        public int TopLeft = 0, TopMid = 0, TopRight = 0;
-        public int MidLeft = 0, Pixel = 1, MidRight = 0;
-        public int BottomLeft = 0, BottomMid = 0, BottomRight = 0;
+        public int TopLeft, TopMid, TopRight;
+        public int MidLeft, Pixel, MidRight;
+        public int BottomLeft, BottomMid, BottomRight;
 
         public int Factor = 1;
         public int Offset = 0;
+
+        /// <summary>
+        /// Initialize an instance of the <see cref="ConvolutionMatrix"/> class
+        /// </summary>
+        public ConvolutionMatrix()
+        {
+            Pixel = 1;
+            //TopLeft = TopMid = TopRight =
+            //    MidLeft = MidRight =
+            //        BottomLeft = BottomMid = BottomRight = 0;
+        }
 
         /// <summary>
         /// Sets the matrix values with the given parameter

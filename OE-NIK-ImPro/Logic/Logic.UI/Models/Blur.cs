@@ -17,6 +17,7 @@ namespace OE.NIK.ImPro.Logic.UI.Models
         private void BlurImage()
         {
             SetMatrixToGaussian();
+            // base.
         }
 
         private void SetMatrixToGaussian()
