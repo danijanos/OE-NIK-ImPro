@@ -88,6 +88,7 @@
     <Compile Include="MainViewModel.cs" />
     <Compile Include="Models\BaseImageProcesser.cs" />
     <Compile Include="Models\ColorToGrayscaleConverter.cs" />
+    <Compile Include="Models\ConvolutionMatrix.cs" />
     <Compile Include="Models\HistogramCalculator.cs" />
     <Compile Include="Models\IImageProcesser.cs" />
     <Compile Include="Models\Invert.cs" />
