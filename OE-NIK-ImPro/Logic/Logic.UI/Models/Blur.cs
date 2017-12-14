@@ -1,10 +1,20 @@
-﻿namespace OE.NIK.ImPro.Logic.UI.Models
+﻿using System.Drawing;
+
+namespace OE.NIK.ImPro.Logic.UI.Models
 {
     /// <summary>
     /// Class which applies blurring operation in the image
     /// </summary>
-    internal sealed class Blur
+    internal sealed class Blur : Convolution
     {
+        public Blur(Bitmap sourceImage) : base(sourceImage)
+        {
+            BlurImage();
+        }
 
+        private void BlurImage()
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }
