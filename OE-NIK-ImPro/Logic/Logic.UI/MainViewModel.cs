@@ -33,8 +33,8 @@ namespace OE.NIK.ImPro.Logic.UI
 
             GrayscaleCommand = new RelayCommand(
                 () =>
-                {                    
-                    new ColorToGrayscaleConverter(BitmapFromImage);  
+                {
+                    new ColorToGrayscaleConverter(BitmapFromImage);
                     BitmapFromImage.Save(SourceOfTheSelectedImage + ".jpg");
                     SourceOfTheSelectedImage += ".jpg";
                     FilesToDeleteWhenQuit.Add(SourceOfTheSelectedImage);
@@ -99,5 +99,10 @@ namespace OE.NIK.ImPro.Logic.UI
         /// Command for histogram button
         /// </summary>
         public RelayCommand GrayscaleCommand { get; }
+
+        /// <summary>
+        /// Command for invert button
+        /// </summary>
+        public RelayCommand InvertCommand { get; set; }
     }
 }
